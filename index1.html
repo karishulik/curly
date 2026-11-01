@@ -68,16 +68,20 @@
     .blob {
       border: 0;
       background: var(--paper);
-      -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><path d='M20,50 Q20,20 50,20 Q80,20 80,50 Q80,20 110,20 Q140,20 140,50 Q140,20 170,20 Q200,20 200,50 Q200,20 230,20 Q260,20 260,50 Q260,20 290,20 Q320,20 320,50 Q320,20 350,20 Q380,20 380,50 L380,250 Q380,280 350,280 Q320,280 320,250 Q320,280 290,280 Q260,280 260,250 Q260,280 230,280 Q200,280 200,250 Q200,280 170,280 Q140,280 140,250 Q140,280 110,280 Q80,280 80,250 Q80,280 50,280 Q20,280 20,250 Z' fill='white'/></svg>");
-      mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><path d='M20,50 Q20,20 50,20 Q80,20 80,50 Q80,20 110,20 Q140,20 140,50 Q140,20 170,20 Q200,20 200,50 Q200,20 230,20 Q260,20 260,50 Q260,20 290,20 Q320,20 320,50 Q320,20 350,20 Q380,20 380,50 L380,250 Q380,280 350,280 Q320,280 320,250 Q320,280 290,280 Q260,280 260,250 Q260,280 230,280 Q200,280 200,250 Q200,280 170,280 Q140,280 140,250 Q140,280 110,280 Q80,280 80,250 Q80,280 50,280 Q20,280 20,250 Z' fill='white'/></svg>");
+      -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300' preserveAspectRatio='none'><path d='M24,24 Q53.3,0 82.7,24 Q112,0 141.3,24 Q170.7,0 200,24 Q229.3,0 258.7,24 Q288,0 317.3,24 Q346.7,0 376,24 Q400,55.5 376,87 Q400,118.5 376,150 Q400,181.5 376,213 Q400,244.5 376,276 Q346.7,300 317.3,276 Q288,300 258.7,276 Q229.3,300 200,276 Q170.7,300 141.3,276 Q112,300 82.7,276 Q53.3,300 24,276 Q0,244.5 24,213 Q0,181.5 24,150 Q0,118.5 24,87 Q0,55.5 24,24 Z' fill='white'/></svg>");
+      mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300' preserveAspectRatio='none'><path d='M24,24 Q53.3,0 82.7,24 Q112,0 141.3,24 Q170.7,0 200,24 Q229.3,0 258.7,24 Q288,0 317.3,24 Q346.7,0 376,24 Q400,55.5 376,87 Q400,118.5 376,150 Q400,181.5 376,213 Q400,244.5 376,276 Q346.7,300 317.3,276 Q288,300 258.7,276 Q229.3,300 200,276 Q170.7,300 141.3,276 Q112,300 82.7,276 Q53.3,300 24,276 Q0,244.5 24,213 Q0,181.5 24,150 Q0,118.5 24,87 Q0,55.5 24,24 Z' fill='white'/></svg>");
       -webkit-mask-size: 100% 100%;
       mask-size: 100% 100%;
       -webkit-mask-repeat: no-repeat;
       mask-repeat: no-repeat;
-      filter: drop-shadow(0 8px 16px rgba(75, 45, 37, .10));
-      padding: calc(var(--space-24, 1.5rem) + 6px);
+      -webkit-mask-clip: border-box;
+      mask-clip: border-box;
+      -webkit-mask-origin: border-box;
+      mask-origin: border-box;
+      filter: drop-shadow(0 6px 14px rgba(75, 45, 37, .14));
+      padding: 1.75rem;
     }
-    @supports not (mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><path d='M20,50 Q20,20 50,20 L380,50 L380,250 Q380,280 350,280 L50,280 Q20,280 20,250 Z' fill='white'/></svg>")) {
+    @supports not (mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><path d='M24,24 L376,24 L376,276 L24,276 Z' fill='white'/></svg>")) {
       .blob { border-radius: var(--radius); box-shadow: var(--shadow); }
     }
 
@@ -116,30 +120,30 @@
     .hero-caption { margin: .8rem 0 0; color: var(--muted); font-size: .83rem; text-align: center; }
 
     /* Карточки услуг */
-    .services { background: var(--paper); }
-    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-    .service-card { display: flex; min-height: 14rem; flex-direction: column; align-items: flex-start; border: 0; background: var(--paper); transition: transform var(--ease-base) .3s, filter var(--ease-base) .3s; }
-    .service-card:hover { transform: translateY(-4px); filter: drop-shadow(0 12px 20px rgba(75, 45, 37, .14)); }
-    .service-card:active { transform: translateY(-1px); filter: drop-shadow(0 6px 12px rgba(75, 45, 37, .10)); }
+    .services { background: var(--cream); }
+    .service-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+    .service-card { display: flex; min-height: 14rem; flex-direction: column; align-items: flex-start; border: 0; background: #FFFFFF; transition: transform var(--ease-base) .3s, filter var(--ease-base) .3s; }
+    .service-card:hover { transform: translateY(-4px); filter: drop-shadow(0 12px 20px rgba(75, 45, 37, .18)); }
+    .service-card:active { transform: translateY(-1px); filter: drop-shadow(0 6px 12px rgba(75, 45, 37, .12)); }
     .service-icon { display: grid; width: 3.2rem; height: 3.2rem; place-items: center; margin-bottom: 1.1rem; border-radius: 1rem; background: rgba(229, 163, 177, .35); color: var(--rose-dark); }
-    .service-card:nth-child(3n + 2) .service-icon { background: rgba(199, 216, 226, .5); color: #4B2D25; }
-    .service-card:nth-child(3n) .service-icon { background: rgba(229, 163, 177, .25); color: #661D24; }
+    .service-card:nth-child(even) .service-icon { background: rgba(199, 216, 226, .5); color: #4B2D25; }
+    .service-card:nth-child(4n) .service-icon { background: rgba(229, 163, 177, .25); color: #661D24; }
     .service-card h3 { margin: 0; font-family: "NauryzRedKeds", Georgia, serif; font-weight: 700; font-size: 1.25rem; line-height: 1.25; letter-spacing: -.01em; }
     .service-card p { margin: .55rem 0 0; color: var(--muted); font-size: .92rem; }
 
     /* Мастера */
-    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
-    .master-card { overflow: hidden; border-radius: var(--radius); background: var(--paper); box-shadow: 0 .6rem 2rem rgba(75, 45, 37, .08); transition: transform var(--ease-base) .3s, box-shadow var(--ease-base) .3s; }
+    .team-grid { display: flex; justify-content: center; }
+    .master-card { overflow: hidden; max-width: 22rem; width: 100%; border-radius: var(--radius); background: var(--paper); box-shadow: 0 .6rem 2rem rgba(75, 45, 37, .08); transition: transform var(--ease-base) .3s, box-shadow var(--ease-base) .3s; }
     .master-card:hover { transform: translateY(-4px); box-shadow: 0 1rem 2.5rem rgba(75, 45, 37, .14); }
     .master-card:active { transform: translateY(-1px); box-shadow: 0 .4rem 1.2rem rgba(75, 45, 37, .10); }
-    .portrait { display: grid; min-height: 15rem; place-items: center; background: rgba(199, 216, 226, .45); }
-    .master-card:nth-child(2) .portrait { background: rgba(229, 163, 177, .25); }
-    .master-card:nth-child(3) .portrait { background: rgba(199, 216, 226, .35); }
+    .portrait { display: grid; min-height: 15rem; place-items: center; background: var(--sand); }
+    .portrait img { display: block; width: 100%; height: auto; object-fit: cover; }
     .portrait svg { width: 8.5rem; height: 8.5rem; }
-    .master-info { padding: 1.35rem 1.5rem 1.6rem; }
+    .portrait-fallback { display: grid; place-items: center; gap: 1rem; padding: 2rem; }
+    .portrait-fallback img { width: 5rem; height: 5rem; object-fit: contain; }
+    .master-info { padding: 1.35rem 1.5rem 1.6rem; text-align: center; }
     .master-info h3 { margin: 0; font-family: "NauryzRedKeds", Georgia, serif; font-weight: 700; font-size: 1.45rem; letter-spacing: -.01em; }
-    .master-role { margin: .25rem 0 .8rem; color: var(--rose); font-size: .83rem; font-weight: 750; }
-    .master-info p:last-child { margin: 0; color: var(--muted); font-size: .92rem; }
+    .master-info p:last-child { margin: .6rem 0 0; color: var(--muted); font-size: .95rem; font-style: italic; }
 
     /* Отзывы */
     .reviews { background: rgba(199, 216, 226, .45); }
@@ -154,15 +158,20 @@
     .review-avatar { display: grid; width: 2.4rem; height: 2.4rem; place-items: center; border-radius: 50%; background: rgba(229, 163, 177, .45); color: var(--rose-dark); font-weight: 800; }
 
     /* Цены */
-    .price-wrap { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(2rem, 7vw, 6rem); align-items: start; }
+    .price-wrap { display: grid; gap: clamp(2rem, 5vw, 3rem); }
+    .price-intro { text-align: center; max-width: 36rem; margin-inline: auto; }
     .price-intro h2 { margin: 0; font-family: "NauryzRedKeds", Georgia, serif; font-weight: 700; font-size: clamp(2rem, 4.5vw, 3.2rem); line-height: 1.15; letter-spacing: -.01em; text-wrap: balance; }
     .price-intro > p:not(.eyebrow) { color: var(--muted); }
-    .price-blob-wrap { padding: calc(var(--space-24, 1.5rem) + 6px); }
-    .price-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
-    .price-list li { display: flex; justify-content: space-between; gap: 1rem; padding: 1.05rem 0; border-bottom: 1px solid var(--line); }
-    .price-list span:first-child { font-weight: 650; }
-    .price-list span:last-child { color: var(--rose); font-weight: 800; white-space: nowrap; font-variant-numeric: tabular-nums; }
-    .price-footnote { margin-top: 1rem; color: var(--muted); font-size: .84rem; }
+    .price-groups { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+    .price-group { background: #C7D8E2; padding: 1.75rem; }
+    .price-group h3 { margin: 0 0 1rem; font-family: "NauryzRedKeds", Georgia, serif; font-weight: 700; font-size: 1.2rem; font-style: italic; letter-spacing: -.01em; }
+    .price-list { margin: 0; padding: 0; list-style: none; }
+    .price-list li { display: flex; align-items: baseline; gap: .5rem; padding: .55rem 0; }
+    .price-list li + li { border-top: 0; }
+    .price-label { font-weight: 600; flex: 0 1 auto; white-space: nowrap; }
+    .price-leader { flex: 1; border-bottom: 2px dotted rgba(75, 45, 37, .35); margin-bottom: .25em; min-width: 1rem; }
+    .price-value { color: var(--rose); font-weight: 800; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .price-footnote { margin-top: 1.5rem; color: var(--muted); font-size: .84rem; text-align: center; }
 
     /* Контакты и форма записи */
     .contact-section { padding-bottom: clamp(4rem, 8vw, 7rem); }
@@ -224,9 +233,10 @@
       .hero-copy > p:not(.eyebrow) { margin-inline: auto; }
       .hero-actions, .hero-note { justify-content: center; }
       .hero-art { min-height: auto; max-width: 30rem; margin-inline: auto; }
-      .team-grid, .review-grid { grid-template-columns: 1fr; max-width: 32rem; margin-inline: auto; }
+      .team-grid { justify-content: center; }
+      .review-grid { grid-template-columns: 1fr; max-width: 32rem; margin-inline: auto; }
       .portrait { min-height: 12rem; }
-      .price-wrap { grid-template-columns: 1fr; gap: 1.5rem; }
+      .price-groups { grid-template-columns: 1fr; }
       .contact-panel { grid-template-columns: 1fr; }
     }
     @media (max-width: 460px) {
@@ -285,6 +295,17 @@
     /* Risk-reversal line */
     .risk-reversal { margin: 1.5rem 0 0; color: rgba(255, 255, 242, .7); font-size: .88rem; font-style: italic; }
 
+    /* FAQ */
+    .faq-list { display: grid; gap: 1rem; max-width: 44rem; margin-inline: auto; }
+    .faq-item { padding: 1.25rem 1.5rem; border-radius: var(--radius); background: var(--paper); box-shadow: 0 .3rem 1rem rgba(75, 45, 37, .06); }
+    .faq-item details { }
+    .faq-item summary { cursor: pointer; font-weight: 700; font-size: 1.02rem; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: "+"; font-weight: 800; font-size: 1.3rem; color: var(--rose); flex: none; transition: transform var(--ease-base) .3s; }
+    .faq-item details[open] summary::after { content: "−"; }
+    .faq-item p { margin: .75rem 0 0; color: var(--muted); font-size: .95rem; line-height: 1.55; }
+    .faq-item ul { margin: .5rem 0 0; padding-left: 1.2rem; color: var(--muted); font-size: .95rem; line-height: 1.55; }
+
     @media (max-width: 700px) {
       .nav.is-open a { animation: nav-link-fade .4s var(--ease-base) both; }
       .nav.is-open a:nth-child(1) { animation-delay: 0ms; }
@@ -292,12 +313,69 @@
       .nav.is-open a:nth-child(3) { animation-delay: 160ms; }
       .nav.is-open a:nth-child(4) { animation-delay: 240ms; }
       .nav.is-open a:nth-child(5) { animation-delay: 320ms; }
+      .nav.is-open a:nth-child(6) { animation-delay: 400ms; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-delay: 0s !important; }
       .js-enabled .reveal, .js-enabled .reveal-stagger > * { opacity: 1 !important; transform: none !important; }
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Сколько держится биозавивка?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "6–8 месяцев при правильном домашнем уходе. Локон остаётся живым и упругим, если использовать бессульфатный уход и не перегружать волосы силиконами."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Что такое окудрение?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Это процедура с накопительным эффектом, которая: уменьшает пористость; увеличивает упругость и прочность; реконструирует волос изнутри; возвращает природный завиток. Срок носки — 4–6 недель, затем процедуру можно повторить."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Что нужно для онлайн-консультации?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Три простых шага: 1) пришлите 3–4 фото волос (спереди, сзади, сбоку); 2) опишите краткую историю волос за последние 1–1,5 года — окрашивания, хна, ботокс, кератин и др.; 3) пришлите референс или опишите, какой результат вы ждёте от процедуры биозавивки."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Делаете ли вы мужскую завивку?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Да. Предлагаем два варианта: макушка (верхняя часть) или вся голова. Снятие завивки (не кератин) также доступно."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Как ухаживать за волосами после биозавивки?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Рекомендуем бессульфатные шампуни, увлажняющие маски 1–2 раза в неделю и несмываемый уход для кудрявых волос. Расчёсывайте влажные волосы гребнем с широкими зубьями, не трите полотенцем — лучше промакивать."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Можно ли снять завивку?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Да, снятие завивки возможно. Для женских волос — от 1 000 ₽, для мужских (не кератин) — 4 500 ₽. Мастер оценит состояние волос и подберёт безопасный способ снятия."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <script>document.documentElement.classList.add('js-enabled');</script>
@@ -309,7 +387,7 @@
         <span>Кудри вьются</span>
       </a>
       <nav class="nav" id="site-nav" aria-label="Основная навигация">
-        <a href="#services">Услуги</a><a href="#team">Мастера</a><a href="#reviews">Отзывы</a><a href="#prices">Цены</a><a href="#contacts">Контакты</a>
+        <a href="#services">Услуги</a><a href="#team">Мастера</a><a href="#reviews">Отзывы</a><a href="#prices">Цены</a><a href="#faq">Вопросы</a><a href="#contacts">Контакты</a>
       </nav>
       <a class="button header-cta" href="#contacts">Записаться</a>
       <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-nav">
@@ -341,12 +419,10 @@
       <div class="container">
         <div class="section-heading"><p class="eyebrow">Для волн, локонов и спиралей</p><h2 id="services-title">Уход, который понимает ваши волосы</h2><p>Работаем с естественной текстурой и подбираем ритуал именно для вас.</p></div>
         <div class="service-grid reveal-stagger">
-          <article class="service-card blob"><span class="service-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3c4 2 4 5 0 7s-4 5 0 7 4 5 0 7M16 2c4 2 4 5 0 7s-4 5 0 7 4 5 0 7"/></svg></span><h3>Стрижка по кудрявой технологии</h3><p>Форма, которая красиво живёт и без сложной укладки.</p></article>
-          <article class="service-card blob"><span class="service-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c-2 3-6 7-6 11a6 6 0 0 0 12 0c0-4-4-8-6-11zM9 15c.3 1.6 1.2 2.5 2.7 2.8"/></svg></span><h3>Уход и глубокое увлажнение</h3><p>Мягкие формулы вернут локонам эластичность и блеск.</p></article>
-          <article class="service-card blob"><span class="service-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M4.5 7.5l15 9M4.5 16.5l15-9M7 4l10 16M17 4 7 20"/></svg></span><h3>Окрашивание с заботой</h3><p>Мягкие оттенки и живые блики с сохранением качества волос.</p></article>
-          <article class="service-card blob"><span class="service-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v7M4 3v4a3 3 0 0 0 6 0V3M7 10v11M17 3c-2 3-3 6-3 10h6V3M17 13v8"/></svg></span><h3>Укладка с диффузором</h3><p>Научим собирать стойкие, упругие завитки самостоятельно.</p></article>
-          <article class="service-card blob"><span class="service-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10zM9 12h6M12 9v6"/></svg></span><h3>Персональная консультация</h3><p>Разберём домашний уход и найдём ответы на ваши вопросы.</p></article>
-          <article class="service-card blob"><span class="service-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M6 17l2-7h8l2 7M9 10V6a3 3 0 0 1 6 0v4M12 3v1M4 5l2 1M20 5l-2 1"/></svg></span><h3>Кудрявый барбер</h3><p>Форма и уход для кудрявых волос и бороды — без компромиссов.</p></article>
+          <article class="service-card blob"><span class="service-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3c4 2 4 5 0 7s-4 5 0 7 4 5 0 7M16 2c4 2 4 5 0 7s-4 5 0 7 4 5 0 7"/></svg></span><h3>Женская биозавивка</h3><p>Завиток живёт 6–8 месяцев при правильном домашнем уходе.</p></article>
+          <article class="service-card blob"><span class="service-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M4.5 7.5l15 9M4.5 16.5l15-9M7 4l10 16M17 4 7 20"/></svg></span><h3>Мужская завивка</h3><p>Макушка или вся голова — аккуратный кудрявый формат для коротких стрижек.</p></article>
+          <article class="service-card blob"><span class="service-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c-2 3-6 7-6 11a6 6 0 0 0 12 0c0-4-4-8-6-11zM9 15c.3 1.6 1.2 2.5 2.7 2.8"/></svg></span><h3>Окудрение</h3><p>Меньше пористости, локон прочнее — процедура с накопительным эффектом (4–6 недель).</p></article>
+          <article class="service-card blob"><span class="service-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10zM9 12h6M12 9v6"/></svg></span><h3>Онлайн-консультация</h3><p>Три шага: фото волос, история ухода и референс по результату.</p></article>
         </div>
       </div>
     </section>
@@ -355,9 +431,18 @@
       <div class="container">
         <div class="section-heading"><p class="eyebrow">Знакомьтесь</p><h2 id="team-title">Ваши кудри в надёжных руках</h2><p>Мы сами знаем, каково это — искать подход к непослушному завитку.</p></div>
         <div class="team-grid reveal-stagger">
-          <article class="master-card"><div class="portrait" role="img" aria-label="Иллюстрация портрета мастера Анны"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="53" fill="#d5a58c"/><path d="M21 112c3-21 15-33 39-33s36 12 39 33" fill="#73806b"/><circle cx="60" cy="52" r="26" fill="#f0c5a8"/><path d="M33 54c-9-24 4-46 27-46 24 0 36 21 27 46l-8-13c-10 3-27 1-38-8z" fill="#58392e"/></svg></div><div class="master-info"><h3>Анна Лебедева</h3><p class="master-role">Кудрявый стилист · 8 лет опыта</p><p>Помогаю подружиться с текстурой и найти стрижку, которая радует каждый день.</p></div></article>
-          <article class="master-card"><div class="portrait" role="img" aria-label="Иллюстрация портрета мастера Марии"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="53" fill="#c9d0ba"/><path d="M21 112c3-21 15-33 39-33s36 12 39 33" fill="#a66c5a"/><circle cx="60" cy="52" r="26" fill="#d9a789"/><path d="M33 49C28 25 41 9 62 9c22 0 33 18 26 42l-9-10c-14 4-26 1-39-8z" fill="#634237"/></svg></div><div class="master-info"><h3>Мария Соколова</h3><p class="master-role">Специалист по уходу и окрашиванию</p><p>Люблю возвращать локонам силу, сияние и тот самый «вау, это мои волосы?».</p></div></article>
-          <article class="master-card"><div class="portrait" role="img" aria-label="Иллюстрация портрета мастера Ильи"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="53" fill="#d9cbb6"/><path d="M21 112c3-21 15-33 39-33s36 12 39 33" fill="#66705d"/><circle cx="60" cy="52" r="26" fill="#c98e6f"/><path d="M34 43C37 19 49 11 66 12c15 1 24 12 22 31-12-8-31-11-50-6z" fill="#40302a"/><path d="M45 66c8 10 22 10 30 0" fill="none" stroke="#694435" stroke-width="5" stroke-linecap="round"/></svg></div><div class="master-info"><h3>Илья Морозов</h3><p class="master-role">Кудрявый барбер</p><p>Точно работаю с формой и показываю, как укладывать кудри без лишних усилий.</p></div></article>
+          <article class="master-card">
+            <div class="portrait">
+              <img src="img/master-nika.png" alt="Портрет мастера Ники Мезиной" width="1319" height="1317" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+              <div class="portrait-fallback" style="display:none">
+                <img src="img/brand-mark-small.png" alt="" aria-hidden="true" width="256" height="255">
+              </div>
+            </div>
+            <div class="master-info">
+              <h3>Ника Мезина</h3>
+              <p>Люблю возвращать локонам силу, сияние и тот самый «вау, это мои волосы?».</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -376,7 +461,57 @@
     <section class="section reveal" id="prices" aria-labelledby="prices-title">
       <div class="container price-wrap">
         <div class="price-intro"><p class="eyebrow">Прозрачно и спокойно</p><h2 id="prices-title">Цены на заботу</h2><p>Стоимость зависит от длины и густоты волос. Перед началом мастер согласует план и цену.</p><a class="button button-outline" href="#contacts">Задать вопрос</a></div>
-        <div class="blob price-blob-wrap"><ul class="price-list"><li><span>Стрижка кудрявых волос</span><span>от 4 500 ₽</span></li><li><span>Укладка с диффузором</span><span>от 2 500 ₽</span></li><li><span>Увлажняющий уход</span><span>от 3 000 ₽</span></li><li><span>Окрашивание</span><span>от 6 500 ₽</span></li><li><span>Консультация по уходу</span><span>1 500 ₽</span></li><li><span>Стрижка кудрявого барбера</span><span>от 3 500 ₽</span></li></ul><p class="price-footnote">Точную стоимость подскажем при записи — никаких сюрпризов.</p></div>
+        <div class="price-groups">
+          <div class="blob price-group">
+            <h3>Женская завивка</h3>
+            <ul class="price-list">
+              <li><span class="price-label">Короткие до уха</span><span class="price-leader"></span><span class="price-value">5 000 ₽</span></li>
+              <li><span class="price-label">Средние до плеч</span><span class="price-leader"></span><span class="price-value">6 500 ₽</span></li>
+              <li><span class="price-label">Длинные до начала лопаток</span><span class="price-leader"></span><span class="price-value">7 500 ₽</span></li>
+              <li><span class="price-label">Длинные ниже лопаток</span><span class="price-leader"></span><span class="price-value">9 000 ₽</span></li>
+              <li><span class="price-label">Снятие завивки</span><span class="price-leader"></span><span class="price-value">от 1 000 ₽</span></li>
+            </ul>
+          </div>
+          <div class="blob price-group">
+            <h3>Мужская завивка</h3>
+            <ul class="price-list">
+              <li><span class="price-label">Макушка — верхняя часть</span><span class="price-leader"></span><span class="price-value">4 000 ₽</span></li>
+              <li><span class="price-label">Вся голова</span><span class="price-leader"></span><span class="price-value">6 000 ₽</span></li>
+              <li><span class="price-label">Снятие завивки (не кератин)</span><span class="price-leader"></span><span class="price-value">4 500 ₽</span></li>
+            </ul>
+          </div>
+          <div class="blob price-group">
+            <h3>Окудрение</h3>
+            <ul class="price-list">
+              <li><span class="price-label">Короткие до уха</span><span class="price-leader"></span><span class="price-value">5 000 ₽</span></li>
+              <li><span class="price-label">Средние до плеч</span><span class="price-leader"></span><span class="price-value">6 000 ₽</span></li>
+              <li><span class="price-label">Длинные до начала лопаток</span><span class="price-leader"></span><span class="price-value">7 000 ₽</span></li>
+              <li><span class="price-label">Длинные ниже лопаток</span><span class="price-leader"></span><span class="price-value">9 500 ₽</span></li>
+              <li><span class="price-label">Доплата за густоту</span><span class="price-leader"></span><span class="price-value">от 1 000 ₽</span></li>
+            </ul>
+          </div>
+          <div class="blob price-group">
+            <h3>Онлайн-консультация</h3>
+            <ul class="price-list">
+              <li><span class="price-label">Стоимость</span><span class="price-leader"></span><span class="price-value">уточняется при записи</span></li>
+            </ul>
+          </div>
+        </div>
+        <p class="price-footnote">Срок носки биозавивки — 6–8 месяцев; окудрение обновляет завиток каждые 4–6 недель.</p>
+      </div>
+    </section>
+
+    <section class="section reveal" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">Частые вопросы</p><h2 id="faq-title">Отвечаем спокойно и по делу</h2></div>
+        <div class="faq-list reveal-stagger">
+          <div class="faq-item"><details><summary>Сколько держится биозавивка?</summary><p>6–8 месяцев при правильном домашнем уходе. Локон остаётся живым и упругим, если использовать бессульфатный уход и не перегружать волосы силиконами.</p></details></div>
+          <div class="faq-item"><details><summary>Что такое окудрение?</summary><p>Это процедура с накопительным эффектом, которая:</p><ul><li>уменьшает пористость;</li><li>увеличивает упругость и прочность;</li><li>реконструирует волос изнутри;</li><li>возвращает природный завиток.</li></ul><p>Срок носки — 4–6 недель, затем процедуру можно повторить.</p></details></div>
+          <div class="faq-item"><details><summary>Что нужно для онлайн-консультации?</summary><p>Три простых шага: 1) пришлите 3–4 фото волос (спереди, сзади, сбоку); 2) опишите краткую историю волос за последние 1–1,5 года — окрашивания, хна, ботокс, кератин и др.; 3) пришлите референс или опишите, какой результат вы ждёте от процедуры биозавивки.</p></details></div>
+          <div class="faq-item"><details><summary>Делаете ли вы мужскую завивку?</summary><p>Да. Предлагаем два варианта: макушка (верхняя часть) или вся голова. Снятие завивки (не кератин) также доступно.</p></details></div>
+          <div class="faq-item"><details><summary>Как ухаживать за волосами после биозавивки?</summary><p>Рекомендуем бессульфатные шампуни, увлажняющие маски 1–2 раза в неделю и несмываемый уход для кудрявых волос. Расчёсывайте влажные волосы гребнем с широкими зубьями, не трите полотенцем — лучше промакивать.</p></details></div>
+          <div class="faq-item"><details><summary>Можно ли снять завивку?</summary><p>Да, снятие завивки возможно. Для женских волос — от 1 000 ₽, для мужских (не кератин) — 4 500 ₽. Мастер оценит состояние волос и подберёт безопасный способ снятия.</p></details></div>
+        </div>
       </div>
     </section>
 
@@ -394,7 +529,7 @@
           <h3>Записаться в салон</h3>
           <div class="field"><label for="name">Ваше имя</label><input id="name" name="name" type="text" autocomplete="name" placeholder="Например, Анастасия" required></div>
           <div class="field"><label for="phone">Телефон</label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" required></div>
-          <div class="field"><label for="service">Что вас интересует?</label><select id="service" name="service" required><option value="" disabled selected>Выберите услугу</option><option>Стрижка кудрявых волос</option><option>Уход и увлажнение</option><option>Окрашивание</option><option>Укладка с диффузором</option><option>Консультация по уходу</option><option>Кудрявый барбер</option></select></div>
+          <div class="field"><label for="service">Что вас интересует?</label><select id="service" name="service" required><option value="" disabled selected>Выберите услугу</option><option>Женская биозавивка</option><option>Мужская завивка</option><option>Окудрение</option><option>Онлайн-консультация</option></select></div>
           <button class="button" type="submit">Отправить заявку <span aria-hidden="true">↗</span></button>
           <p class="form-error" id="form-error" role="alert" aria-live="assertive"></p>
           <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
@@ -405,7 +540,7 @@
 
   <div class="locks-strip" aria-hidden="true"></div>
 
-  <footer class="site-footer"><div class="container footer-inner"><a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"><img src="img/brand-mark-small.png" alt="" aria-hidden="true" width="256" height="255"></span><span>Кудри вьются</span></a><span class="footer-copy">© <span id="year">2026</span> · С любовью к вашим завиткам</span><div class="socials" aria-label="Мы в социальных сетях"><a href="https://instagram.com/" aria-label="Instagram"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a><a href="https://vk.com/" aria-label="ВКонтакте"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h4c1.3 5 3 7 4 7s1-1 1-3V7h4v5c0 1 .4 2 1 2s2-2 4-7h-4M4 17h5l2-3 3 3h6"/></svg></a><a href="https://t.me/" aria-label="Telegram"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m22 3-7 18-4-8-8-4zM22 3 11 13"/></svg></a></div><div class="footer-legal"><button type="button" data-dialog="#privacy-dialog">Политика конфиденциальности</button><button type="button" data-dialog="#terms-dialog">Условия</button></div></div></footer>
+  <footer class="site-footer"><div class="container footer-inner"><a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"><img src="img/brand-mark-small.png" alt="" aria-hidden="true" width="256" height="255"></span><span>Кудри вьются</span></a><span class="footer-copy">© <span id="year">2026</span> · С любовью к вашим завиткам</span><div class="socials" aria-label="Мы в социальных сетях"><a href="https://t.me/kycheryanika" target="_blank" rel="noopener" aria-label="Telegram"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m22 3-7 18-4-8-8-4zM22 3 11 13"/></svg></a><a href="https://www.instagram.com/nikacurlywave?igsh=a3hlYjdvanN4dW1s&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a><a href="https://vk.ru/nikacurlywavebio" target="_blank" rel="noopener" aria-label="ВКонтакте"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h4c1.3 5 3 7 4 7s1-1 1-3V7h4v5c0 1 .4 2 1 2s2-2 4-7h-4M4 17h5l2-3 3 3h6"/></svg></a></div><div class="footer-legal"><button type="button" data-dialog="#privacy-dialog">Политика конфиденциальности</button><button type="button" data-dialog="#terms-dialog">Условия</button></div></div></footer>
 
   <dialog class="legal-dialog" id="privacy-dialog">
     <h3>Политика конфиденциальности</h3>
