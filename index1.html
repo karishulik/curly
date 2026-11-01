@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#FFFFF2">
   <meta name="description" content="Кудри вьются — салон бережного ухода и стрижки для кудрявых волос в Санкт-Петербурге.">
+  <meta property="og:title" content="Кудри вьются — салон для ваших локонов">
+  <meta property="og:description" content="Салон бережного ухода и стрижки для кудрявых волос в Санкт-Петербурге.">
+  <meta property="og:type" content="website">
   <title>Кудри вьются — салон для ваших локонов</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,14 +52,16 @@
     :focus-visible { outline: 3px solid #661D24; outline-offset: 4px; }
     .container { width: min(100% - 2rem, 1160px); margin-inline: auto; }
     .eyebrow { margin: 0 0 .75rem; color: var(--rose); font-size: .75rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
-    .section { padding-block: clamp(4rem, 8vw, 7rem); }
+    .section { padding-top: clamp(4rem, 8vw, 7rem); padding-bottom: clamp(4.5rem, 9vw, 8rem); }
     .section-heading { max-width: 42rem; margin: 0 auto 2.8rem; text-align: center; }
-    .section-heading h2 { margin: 0; font-family: "NauryzRedKeds", Georgia, serif; font-weight: 700; font-size: clamp(2rem, 5vw, 3.35rem); line-height: 1.15; letter-spacing: -.01em; }
+    .section-heading h2 { margin: 0; font-family: "NauryzRedKeds", Georgia, serif; font-weight: 700; font-size: clamp(2rem, 5vw, 3.35rem); line-height: 1.15; letter-spacing: -.01em; text-wrap: balance; }
     .section-heading p:last-child { max-width: 34rem; margin: 1rem auto 0; color: var(--muted); }
     .button { display: inline-flex; min-height: 3.2rem; align-items: center; justify-content: center; gap: .55rem; padding: .85rem 1.35rem; border: 1px solid var(--rose); border-radius: 999px; background: var(--rose); color: #FFFFF2; font-weight: 700; cursor: pointer; transition: background var(--ease-base) .3s, color var(--ease-base) .3s, transform var(--ease-base) .3s, filter var(--ease-base) .3s; font-family: "Onest", "Segoe UI", system-ui, sans-serif; }
     .button:hover { transform: translateY(-2px); background: var(--rose-dark); filter: drop-shadow(0 .6rem 1.3rem rgba(75, 45, 37, .18)); }
+    .button:active { transform: translateY(0); filter: none; }
     .button-outline { background: transparent; color: var(--rose-dark); border-color: var(--rose); }
     .button-outline:hover { background: var(--rose); color: #FFFFF2; }
+    .button-outline:active { background: var(--rose-dark); color: #FFFFF2; }
     .icon { width: 1.5rem; height: 1.5rem; flex: none; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 
     /* Blob-карточки — облачная форма бренда */
@@ -79,20 +84,25 @@
     /* Шапка и навигация */
     .site-header { position: sticky; z-index: 10; top: 0; border-bottom: 1px solid var(--line); background: rgba(255, 255, 242, .94); backdrop-filter: blur(14px); }
     .header-inner { display: flex; min-height: 5rem; align-items: center; justify-content: space-between; gap: 1.2rem; }
-    .brand { display: inline-flex; align-items: center; gap: .65rem; font-family: "NauryzRedKeds", Georgia, serif; font-weight: 700; font-size: 1.2rem; letter-spacing: -.01em; white-space: nowrap; }
+    .brand { display: inline-flex; align-items: center; gap: .65rem; font-family: "NauryzRedKeds", Georgia, serif; font-weight: 700; font-size: 1.2rem; letter-spacing: -.01em; white-space: nowrap; transition: opacity var(--ease-base) .3s; }
+    .brand:hover { opacity: .8; }
+    .brand:active { opacity: .65; }
     .brand-mark { display: grid; width: 2.4rem; height: 2.4rem; place-items: center; border-radius: 50%; background: transparent; color: white; }
     .brand-mark img { width: 2.1rem; height: 2.1rem; object-fit: contain; }
     .nav { display: flex; align-items: center; gap: clamp(.8rem, 2vw, 1.7rem); }
     .nav a { color: #55443c; font-size: .9rem; font-weight: 650; transition: color var(--ease-base) .3s; }
     .nav a:hover { color: var(--rose-dark); }
+    .nav a:active { color: var(--rose); }
     .header-cta { min-height: 2.8rem; padding: .65rem 1.1rem; font-size: .9rem; }
-    .menu-toggle { display: none; width: 2.8rem; height: 2.8rem; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 50%; background: var(--paper); color: var(--brown); cursor: pointer; }
+    .menu-toggle { display: none; width: 2.8rem; height: 2.8rem; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 50%; background: var(--paper); color: var(--brown); cursor: pointer; transition: transform var(--ease-base) .3s, background var(--ease-base) .3s; }
+    .menu-toggle:hover { background: rgba(229, 163, 177, .15); }
+    .menu-toggle:active { transform: scale(.94); }
 
     /* Первый экран */
-    .hero { overflow: hidden; padding-block: clamp(3rem, 7vw, 6.5rem); }
+    .hero { overflow: hidden; padding-top: clamp(3rem, 7vw, 6.5rem); padding-bottom: clamp(3.5rem, 8vw, 7.5rem); }
     .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: clamp(2rem, 7vw, 6rem); }
     .hero-copy { padding-block: 1rem; }
-    .hero h1 { max-width: 12ch; margin: 0; font-family: "NauryzRedKeds", Georgia, serif; font-weight: 700; font-size: clamp(3rem, 7vw, 5.5rem); line-height: 1.05; letter-spacing: -.01em; }
+    .hero h1 { max-width: 12ch; margin: 0; font-family: "NauryzRedKeds", Georgia, serif; font-weight: 700; font-size: clamp(3rem, 7vw, 5.5rem); line-height: 1.05; letter-spacing: -.01em; text-wrap: balance; }
     .hero h1 em { color: var(--rose-dark); font-weight: 700; }
     .hero-copy > p:not(.eyebrow) { max-width: 33rem; margin: 1.4rem 0 1.8rem; color: var(--muted); font-size: clamp(1rem, 1.7vw, 1.15rem); }
     .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; }
@@ -110,6 +120,7 @@
     .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
     .service-card { display: flex; min-height: 14rem; flex-direction: column; align-items: flex-start; border: 0; background: var(--paper); transition: transform var(--ease-base) .3s, filter var(--ease-base) .3s; }
     .service-card:hover { transform: translateY(-4px); filter: drop-shadow(0 12px 20px rgba(75, 45, 37, .14)); }
+    .service-card:active { transform: translateY(-1px); filter: drop-shadow(0 6px 12px rgba(75, 45, 37, .10)); }
     .service-icon { display: grid; width: 3.2rem; height: 3.2rem; place-items: center; margin-bottom: 1.1rem; border-radius: 1rem; background: rgba(229, 163, 177, .35); color: var(--rose-dark); }
     .service-card:nth-child(3n + 2) .service-icon { background: rgba(199, 216, 226, .5); color: #4B2D25; }
     .service-card:nth-child(3n) .service-icon { background: rgba(229, 163, 177, .25); color: #661D24; }
@@ -118,7 +129,9 @@
 
     /* Мастера */
     .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
-    .master-card { overflow: hidden; border-radius: var(--radius); background: var(--paper); box-shadow: 0 .6rem 2rem rgba(75, 45, 37, .08); }
+    .master-card { overflow: hidden; border-radius: var(--radius); background: var(--paper); box-shadow: 0 .6rem 2rem rgba(75, 45, 37, .08); transition: transform var(--ease-base) .3s, box-shadow var(--ease-base) .3s; }
+    .master-card:hover { transform: translateY(-4px); box-shadow: 0 1rem 2.5rem rgba(75, 45, 37, .14); }
+    .master-card:active { transform: translateY(-1px); box-shadow: 0 .4rem 1.2rem rgba(75, 45, 37, .10); }
     .portrait { display: grid; min-height: 15rem; place-items: center; background: rgba(199, 216, 226, .45); }
     .master-card:nth-child(2) .portrait { background: rgba(229, 163, 177, .25); }
     .master-card:nth-child(3) .portrait { background: rgba(199, 216, 226, .35); }
@@ -131,7 +144,9 @@
     /* Отзывы */
     .reviews { background: rgba(199, 216, 226, .45); }
     .review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-    .review-card { display: flex; flex-direction: column; padding: 1.6rem; border-radius: var(--radius); background: var(--paper); }
+    .review-card { display: flex; flex-direction: column; padding: 1.6rem; border-radius: var(--radius); background: var(--paper); transition: transform var(--ease-base) .3s, box-shadow var(--ease-base) .3s; }
+    .review-card:hover { transform: translateY(-3px); box-shadow: 0 .8rem 2rem rgba(75, 45, 37, .12); }
+    .review-card:active { transform: translateY(-1px); }
     .stars { color: var(--rose); letter-spacing: .12em; }
     .review-card blockquote { flex: 1; margin: 1rem 0 1.35rem; font-family: Georgia, "Times New Roman", serif; font-size: 1.18rem; line-height: 1.45; }
     .review-author { display: flex; align-items: center; gap: .7rem; color: var(--muted); font-size: .88rem; }
@@ -140,7 +155,7 @@
 
     /* Цены */
     .price-wrap { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(2rem, 7vw, 6rem); align-items: start; }
-    .price-intro h2 { margin: 0; font-family: "NauryzRedKeds", Georgia, serif; font-weight: 700; font-size: clamp(2rem, 4.5vw, 3.2rem); line-height: 1.15; letter-spacing: -.01em; }
+    .price-intro h2 { margin: 0; font-family: "NauryzRedKeds", Georgia, serif; font-weight: 700; font-size: clamp(2rem, 4.5vw, 3.2rem); line-height: 1.15; letter-spacing: -.01em; text-wrap: balance; }
     .price-intro > p:not(.eyebrow) { color: var(--muted); }
     .price-blob-wrap { padding: calc(var(--space-24, 1.5rem) + 6px); }
     .price-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
@@ -154,12 +169,15 @@
     .contact-panel { display: grid; grid-template-columns: .9fr 1.1fr; overflow: hidden; border-radius: 2rem; background: #4B2D25; background-image: url("img/brand-print.svg"); background-size: cover; background-position: center; color: #FFFFF2; box-shadow: var(--shadow); }
     .contact-info { padding: clamp(1.6rem, 5vw, 3.5rem); background: rgba(75, 45, 37, .88); }
     .contact-info .eyebrow { color: var(--pink); }
-    .contact-info h2 { margin: 0 0 1rem; font-family: "NauryzRedKeds", Georgia, serif; font-weight: 700; font-size: clamp(2rem, 4.5vw, 3.3rem); line-height: 1.15; letter-spacing: -.01em; }
+    .contact-info h2 { margin: 0 0 1rem; font-family: "NauryzRedKeds", Georgia, serif; font-weight: 700; font-size: clamp(2rem, 4.5vw, 3.3rem); line-height: 1.15; letter-spacing: -.01em; text-wrap: balance; }
     .contact-info > p { color: rgba(255, 255, 242, .85); }
     .contact-list { display: grid; gap: 1.15rem; margin: 2rem 0 0; padding: 0; list-style: none; }
     .contact-list li { display: flex; align-items: flex-start; gap: .8rem; color: rgba(255, 255, 242, .95); }
     .contact-list .icon { color: var(--pink); }
-    .contact-list small { display: block; color: rgba(255, 255, 242, .7); }
+    .contact-list li a { transition: color var(--ease-base) .3s; }
+    .contact-list li a:hover { color: var(--pink); }
+    .contact-list li a:active { color: #FFFFF2; }
+    .contact-list small { display: block; color: rgba(255, 255, 242, .7); font-variant-numeric: tabular-nums; }
     .contact-form { display: grid; align-content: center; gap: 1rem; padding: clamp(1.6rem, 5vw, 3.5rem); background: var(--paper); color: var(--brown); }
     .contact-form h3 { margin: 0 0 .25rem; font-family: Georgia, "Times New Roman", serif; font-size: 1.7rem; }
     .field { display: grid; gap: .4rem; }
@@ -177,8 +195,9 @@
     .footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; }
     .footer-copy { color: var(--muted); font-size: .86rem; }
     .socials { display: flex; gap: .65rem; }
-    .socials a { display: grid; width: 2.6rem; height: 2.6rem; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--rose-dark); transition: background var(--ease-base) .3s, color var(--ease-base) .3s; }
+    .socials a { display: grid; width: 2.6rem; height: 2.6rem; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--rose-dark); transition: background var(--ease-base) .3s, color var(--ease-base) .3s, transform var(--ease-base) .3s; }
     .socials a:hover { background: var(--rose); color: white; }
+    .socials a:active { transform: scale(.92); }
     .socials .icon { width: 1.2rem; height: 1.2rem; }
 
     /* Адаптация */
@@ -191,10 +210,11 @@
       .contact-panel { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 700px) {
-      .header-inner { min-height: 4.5rem; }
-      .menu-toggle { display: inline-flex; }
+      .header-inner { min-height: 4.5rem; flex-wrap: wrap; }
+      .brand { order: 1; }
+      .menu-toggle { display: inline-flex; order: 2; }
       .header-cta { display: none; }
-      .nav { display: none; flex-direction: column; align-items: stretch; gap: 0; padding: .5rem 1rem 1rem; border-bottom: 1px solid var(--line); background: var(--cream); box-shadow: 0 1rem 1.5rem rgba(75, 45, 37, .08); }
+      .nav { display: none; flex-direction: column; align-items: stretch; gap: 0; padding: .5rem 1rem 1rem; border-bottom: 1px solid var(--line); background: var(--cream); box-shadow: 0 1rem 1.5rem rgba(75, 45, 37, .08); order: 3; flex-basis: 100%; }
       .nav.is-open { display: flex; }
       .nav a { padding: .8rem .5rem; border-bottom: 1px solid var(--line); font-size: 1rem; }
       .nav a:last-child { border-bottom: 0; }
@@ -220,12 +240,68 @@
       .price-list li { font-size: .92rem; }
       .footer-inner { justify-content: center; text-align: center; }
     }
+    /* Skip-to-content */
+    .skip-link { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: flex-start; padding: 0 1.2rem; max-height: 0; overflow: hidden; background: var(--rose); color: var(--cream); font-weight: 700; font-size: .875rem; text-decoration: none; border-radius: 0 0 999px 999px; opacity: 0; pointer-events: none; transition: max-height var(--ease-base) .3s, opacity var(--ease-base) .3s, padding var(--ease-base) .3s; }
+    .skip-link:focus-visible { max-height: 3.5rem; padding: .6rem 1.2rem; opacity: 1; pointer-events: auto; }
+
+    /* Scroll reveal — gated by .js-enabled */
+    .js-enabled .reveal { opacity: 0; transform: translateY(2rem); transition: opacity .7s var(--ease-base), transform .7s var(--ease-base); }
+    .js-enabled .reveal.is-visible { opacity: 1; transform: none; }
+    .js-enabled .reveal-stagger > * { opacity: 0; transform: translateY(2rem); transition: opacity .6s var(--ease-base), transform .6s var(--ease-base); }
+    .js-enabled .reveal-stagger.is-visible > * { opacity: 1; transform: none; }
+    .js-enabled .reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0ms; }
+    .js-enabled .reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 100ms; }
+    .js-enabled .reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 200ms; }
+    .js-enabled .reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 300ms; }
+    .js-enabled .reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 400ms; }
+    .js-enabled .reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 500ms; }
+
+    /* Burger morph → X */
+    .menu-icon .bar { transform-origin: 12px 12px; transform-box: view-box; transition: transform var(--ease-base) .3s, opacity var(--ease-base) .3s; }
+    [aria-expanded="true"] .bar-1 { transform: translateY(5px) rotate(45deg); }
+    [aria-expanded="true"] .bar-2 { opacity: 0; }
+    [aria-expanded="true"] .bar-3 { transform: translateY(-5px) rotate(-45deg); }
+
+    /* Nav link stagger (mobile) */
+    @keyframes nav-link-fade { from { opacity: 0; transform: translateX(-.5rem); } to { opacity: 1; transform: none; } }
+
+    /* Legal footer buttons */
+    .footer-legal { display: flex; gap: 1rem; }
+    .footer-legal button { background: none; border: none; color: var(--muted); font: inherit; font-size: .86rem; cursor: pointer; padding: 0; text-decoration: underline; text-underline-offset: 3px; transition: color var(--ease-base) .3s; }
+    .footer-legal button:hover { color: var(--rose); }
+
+    /* Legal dialogs */
+    .legal-dialog { border: none; border-radius: var(--radius); padding: clamp(1.5rem, 4vw, 2.5rem); max-width: 32rem; width: calc(100% - 2rem); background: var(--cream); color: var(--brown); box-shadow: 0 1.5rem 3rem rgba(75, 45, 37, .18); }
+    .legal-dialog::backdrop { background: rgba(75, 45, 37, .4); }
+    .legal-dialog h3 { margin: 0 0 1rem; font-family: "NauryzRedKeds", Georgia, serif; font-weight: 700; font-size: clamp(1.25rem, 3vw, 1.5rem); color: var(--rose); }
+    .legal-dialog p { margin: 0 0 1rem; color: var(--muted); font-size: .95rem; line-height: 1.55; }
+    .legal-dialog .dialog-close { display: inline-flex; align-items: center; padding: .55rem 1.2rem; border: 1px solid var(--rose); border-radius: 999px; background: transparent; color: var(--rose); font-weight: 700; font-size: .9rem; cursor: pointer; transition: background var(--ease-base) .3s, color var(--ease-base) .3s; }
+    .legal-dialog .dialog-close:hover { background: var(--rose); color: var(--cream); }
+
+    /* Form inline error */
+    .form-error { min-height: 1.35rem; margin: 0; color: rgba(102, 29, 36, .85); font-size: .88rem; font-weight: 600; }
+    .field input[aria-invalid="true"], .field select[aria-invalid="true"] { border-color: var(--rose); box-shadow: 0 0 0 1px var(--rose); }
+
+    /* Risk-reversal line */
+    .risk-reversal { margin: 1.5rem 0 0; color: rgba(255, 255, 242, .7); font-size: .88rem; font-style: italic; }
+
+    @media (max-width: 700px) {
+      .nav.is-open a { animation: nav-link-fade .4s var(--ease-base) both; }
+      .nav.is-open a:nth-child(1) { animation-delay: 0ms; }
+      .nav.is-open a:nth-child(2) { animation-delay: 80ms; }
+      .nav.is-open a:nth-child(3) { animation-delay: 160ms; }
+      .nav.is-open a:nth-child(4) { animation-delay: 240ms; }
+      .nav.is-open a:nth-child(5) { animation-delay: 320ms; }
+    }
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-delay: 0s !important; }
+      .js-enabled .reveal, .js-enabled .reveal-stagger > * { opacity: 1 !important; transform: none !important; }
     }
   </style>
 </head>
 <body>
+  <script>document.documentElement.classList.add('js-enabled');</script>
+  <a class="skip-link" href="#top">Перейти к содержимому</a>
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#top" aria-label="Кудри вьются — на главную">
@@ -237,7 +313,7 @@
       </nav>
       <a class="button header-cta" href="#contacts">Записаться</a>
       <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-nav">
-        <svg class="icon menu-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="icon menu-icon" viewBox="0 0 24 24" aria-hidden="true"><rect class="bar bar-1" x="4" y="6" width="16" height="2" rx="1"/><rect class="bar bar-2" x="4" y="11" width="16" height="2" rx="1"/><rect class="bar bar-3" x="4" y="16" width="16" height="2" rx="1"/></svg>
       </button>
     </div>
   </header>
@@ -261,10 +337,10 @@
       </div>
     </section>
 
-    <section class="section services" id="services" aria-labelledby="services-title">
+    <section class="section services reveal" id="services" aria-labelledby="services-title">
       <div class="container">
         <div class="section-heading"><p class="eyebrow">Для волн, локонов и спиралей</p><h2 id="services-title">Уход, который понимает ваши волосы</h2><p>Работаем с естественной текстурой и подбираем ритуал именно для вас.</p></div>
-        <div class="service-grid">
+        <div class="service-grid reveal-stagger">
           <article class="service-card blob"><span class="service-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3c4 2 4 5 0 7s-4 5 0 7 4 5 0 7M16 2c4 2 4 5 0 7s-4 5 0 7 4 5 0 7"/></svg></span><h3>Стрижка по кудрявой технологии</h3><p>Форма, которая красиво живёт и без сложной укладки.</p></article>
           <article class="service-card blob"><span class="service-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c-2 3-6 7-6 11a6 6 0 0 0 12 0c0-4-4-8-6-11zM9 15c.3 1.6 1.2 2.5 2.7 2.8"/></svg></span><h3>Уход и глубокое увлажнение</h3><p>Мягкие формулы вернут локонам эластичность и блеск.</p></article>
           <article class="service-card blob"><span class="service-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M4.5 7.5l15 9M4.5 16.5l15-9M7 4l10 16M17 4 7 20"/></svg></span><h3>Окрашивание с заботой</h3><p>Мягкие оттенки и живые блики с сохранением качества волос.</p></article>
@@ -275,10 +351,10 @@
       </div>
     </section>
 
-    <section class="section" id="team" aria-labelledby="team-title">
+    <section class="section reveal" id="team" aria-labelledby="team-title">
       <div class="container">
         <div class="section-heading"><p class="eyebrow">Знакомьтесь</p><h2 id="team-title">Ваши кудри в надёжных руках</h2><p>Мы сами знаем, каково это — искать подход к непослушному завитку.</p></div>
-        <div class="team-grid">
+        <div class="team-grid reveal-stagger">
           <article class="master-card"><div class="portrait" role="img" aria-label="Иллюстрация портрета мастера Анны"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="53" fill="#d5a58c"/><path d="M21 112c3-21 15-33 39-33s36 12 39 33" fill="#73806b"/><circle cx="60" cy="52" r="26" fill="#f0c5a8"/><path d="M33 54c-9-24 4-46 27-46 24 0 36 21 27 46l-8-13c-10 3-27 1-38-8z" fill="#58392e"/></svg></div><div class="master-info"><h3>Анна Лебедева</h3><p class="master-role">Кудрявый стилист · 8 лет опыта</p><p>Помогаю подружиться с текстурой и найти стрижку, которая радует каждый день.</p></div></article>
           <article class="master-card"><div class="portrait" role="img" aria-label="Иллюстрация портрета мастера Марии"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="53" fill="#c9d0ba"/><path d="M21 112c3-21 15-33 39-33s36 12 39 33" fill="#a66c5a"/><circle cx="60" cy="52" r="26" fill="#d9a789"/><path d="M33 49C28 25 41 9 62 9c22 0 33 18 26 42l-9-10c-14 4-26 1-39-8z" fill="#634237"/></svg></div><div class="master-info"><h3>Мария Соколова</h3><p class="master-role">Специалист по уходу и окрашиванию</p><p>Люблю возвращать локонам силу, сияние и тот самый «вау, это мои волосы?».</p></div></article>
           <article class="master-card"><div class="portrait" role="img" aria-label="Иллюстрация портрета мастера Ильи"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="53" fill="#d9cbb6"/><path d="M21 112c3-21 15-33 39-33s36 12 39 33" fill="#66705d"/><circle cx="60" cy="52" r="26" fill="#c98e6f"/><path d="M34 43C37 19 49 11 66 12c15 1 24 12 22 31-12-8-31-11-50-6z" fill="#40302a"/><path d="M45 66c8 10 22 10 30 0" fill="none" stroke="#694435" stroke-width="5" stroke-linecap="round"/></svg></div><div class="master-info"><h3>Илья Морозов</h3><p class="master-role">Кудрявый барбер</p><p>Точно работаю с формой и показываю, как укладывать кудри без лишних усилий.</p></div></article>
@@ -286,10 +362,10 @@
       </div>
     </section>
 
-    <section class="section reviews" id="reviews" aria-labelledby="reviews-title">
+    <section class="section reviews reveal" id="reviews" aria-labelledby="reviews-title">
       <div class="container">
         <div class="section-heading"><p class="eyebrow">Нам доверяют свои локоны</p><h2 id="reviews-title">Слова, от которых теплеет</h2></div>
-        <div class="review-grid">
+        <div class="review-grid reveal-stagger">
           <article class="review-card"><div class="stars" aria-label="5 из 5 звёзд">★★★★★</div><blockquote>«Впервые вышла из салона с ощущением, что мои волосы — это достоинство, а не задача. Кудри лежат прекрасно!»</blockquote><div class="review-author"><span class="review-avatar" aria-hidden="true">ЕС</span><span><strong>Екатерина</strong><br>стрижка и укладка</span></div></article>
           <article class="review-card"><div class="stars" aria-label="5 из 5 звёзд">★★★★★</div><blockquote>«Анна объяснила каждый шаг, подсказала уход. Теперь укладываюсь за 15 минут и обожаю отражение.»</blockquote><div class="review-author"><span class="review-avatar" aria-hidden="true">ОЛ</span><span><strong>Ольга</strong><br>консультация и уход</span></div></article>
           <article class="review-card"><div class="stars" aria-label="5 из 5 звёзд">★★★★★</div><blockquote>«Наконец-то барбер, который не пытается выпрямить мои кудри. Форма — огонь, утром просто освежаю водой.»</blockquote><div class="review-author"><span class="review-avatar" aria-hidden="true">ДК</span><span><strong>Дмитрий</strong><br>стрижка у барбера</span></div></article>
@@ -297,14 +373,14 @@
       </div>
     </section>
 
-    <section class="section" id="prices" aria-labelledby="prices-title">
+    <section class="section reveal" id="prices" aria-labelledby="prices-title">
       <div class="container price-wrap">
         <div class="price-intro"><p class="eyebrow">Прозрачно и спокойно</p><h2 id="prices-title">Цены на заботу</h2><p>Стоимость зависит от длины и густоты волос. Перед началом мастер согласует план и цену.</p><a class="button button-outline" href="#contacts">Задать вопрос</a></div>
         <div class="blob price-blob-wrap"><ul class="price-list"><li><span>Стрижка кудрявых волос</span><span>от 4 500 ₽</span></li><li><span>Укладка с диффузором</span><span>от 2 500 ₽</span></li><li><span>Увлажняющий уход</span><span>от 3 000 ₽</span></li><li><span>Окрашивание</span><span>от 6 500 ₽</span></li><li><span>Консультация по уходу</span><span>1 500 ₽</span></li><li><span>Стрижка кудрявого барбера</span><span>от 3 500 ₽</span></li></ul><p class="price-footnote">Точную стоимость подскажем при записи — никаких сюрпризов.</p></div>
       </div>
     </section>
 
-    <section class="contact-section" id="contacts" aria-labelledby="contact-title">
+    <section class="contact-section reveal" id="contacts" aria-labelledby="contact-title">
       <div class="container contact-panel">
         <div class="contact-info"><p class="eyebrow">Будем рады знакомству</p><h2 id="contact-title">Пора дать кудрям свободу</h2><p>Оставьте заявку — мы бережно подберём время и мастера.</p>
           <ul class="contact-list">
@@ -312,6 +388,7 @@
             <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h4l2 5-3 2a15 15 0 0 0 5 5l2-3 5 2v4c0 1.1-.9 2-2 2C10 20 4 14 4 5c0-1.1.9-2 2-2z"/></svg><span><strong><a href="tel:+78125551234">+7 (812) 555-12-34</a></strong><small>Позвоните или оставьте заявку</small></span></li>
             <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><strong>Ежедневно</strong><small>10:00–21:00, по записи</small></span></li>
           </ul>
+          <p class="risk-reversal">Сначала бесплатная консультация в мессенджере — без обязательств.</p>
         </div>
         <form class="contact-form" id="appointment-form">
           <h3>Записаться в салон</h3>
@@ -319,6 +396,7 @@
           <div class="field"><label for="phone">Телефон</label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" required></div>
           <div class="field"><label for="service">Что вас интересует?</label><select id="service" name="service" required><option value="" disabled selected>Выберите услугу</option><option>Стрижка кудрявых волос</option><option>Уход и увлажнение</option><option>Окрашивание</option><option>Укладка с диффузором</option><option>Консультация по уходу</option><option>Кудрявый барбер</option></select></div>
           <button class="button" type="submit">Отправить заявку <span aria-hidden="true">↗</span></button>
+          <p class="form-error" id="form-error" role="alert" aria-live="assertive"></p>
           <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -327,7 +405,21 @@
 
   <div class="locks-strip" aria-hidden="true"></div>
 
-  <footer class="site-footer"><div class="container footer-inner"><a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"><img src="img/brand-mark-small.png" alt="" aria-hidden="true" width="256" height="255"></span><span>Кудри вьются</span></a><span class="footer-copy">© <span id="year">2026</span> · С любовью к вашим завиткам</span><div class="socials" aria-label="Мы в социальных сетях"><a href="https://instagram.com/" aria-label="Instagram"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a><a href="https://vk.com/" aria-label="ВКонтакте"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h4c1.3 5 3 7 4 7s1-1 1-3V7h4v5c0 1 .4 2 1 2s2-2 4-7h-4M4 17h5l2-3 3 3h6"/></svg></a><a href="https://t.me/" aria-label="Telegram"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m22 3-7 18-4-8-8-4zM22 3 11 13"/></svg></a></div></div></footer>
+  <footer class="site-footer"><div class="container footer-inner"><a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"><img src="img/brand-mark-small.png" alt="" aria-hidden="true" width="256" height="255"></span><span>Кудри вьются</span></a><span class="footer-copy">© <span id="year">2026</span> · С любовью к вашим завиткам</span><div class="socials" aria-label="Мы в социальных сетях"><a href="https://instagram.com/" aria-label="Instagram"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a><a href="https://vk.com/" aria-label="ВКонтакте"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h4c1.3 5 3 7 4 7s1-1 1-3V7h4v5c0 1 .4 2 1 2s2-2 4-7h-4M4 17h5l2-3 3 3h6"/></svg></a><a href="https://t.me/" aria-label="Telegram"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m22 3-7 18-4-8-8-4zM22 3 11 13"/></svg></a></div><div class="footer-legal"><button type="button" data-dialog="#privacy-dialog">Политика конфиденциальности</button><button type="button" data-dialog="#terms-dialog">Условия</button></div></div></footer>
+
+  <dialog class="legal-dialog" id="privacy-dialog">
+    <h3>Политика конфиденциальности</h3>
+    <p>Демонстрационная страница салона-парикмахерской. Мы не собираем и не храним персональные данные — форма отправляется только в демо-режиме.</p>
+    <p>В реальном проекте здесь был бы текст политики обработки персональных данных в соответствии с ФЗ-152.</p>
+    <button class="dialog-close" type="button">Понятно</button>
+  </dialog>
+
+  <dialog class="legal-dialog" id="terms-dialog">
+    <h3>Условия</h3>
+    <p>Демонстрационная страница салона-парикмахерской «Кудри вьются». Все материалы, цены и услуги приведены в качестве примера.</p>
+    <p>В реальном проекте здесь были бы условия оказания услуг, порядок записи и отмены.</p>
+    <button class="dialog-close" type="button">Понятно</button>
+  </dialog>
 
   <script>
     // Меню для мобильной навигации
@@ -345,6 +437,22 @@
       menuButton.setAttribute('aria-label', 'Открыть меню');
     }));
 
+    // Юридические диалоги
+    document.querySelectorAll('.footer-legal button').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const dialog = document.querySelector(btn.dataset.dialog);
+        if (dialog) dialog.showModal();
+      });
+    });
+    document.querySelectorAll('.legal-dialog').forEach((dialog) => {
+      dialog.addEventListener('click', (e) => {
+        if (e.target === dialog) dialog.close();
+      });
+      dialog.querySelectorAll('.dialog-close').forEach((btn) => {
+        btn.addEventListener('click', () => dialog.close());
+      });
+    });
+
     // Плавная прокрутка с учётом липкой шапки
     document.querySelectorAll('a[href^="#"]').forEach((link) => link.addEventListener('click', (event) => {
       const target = document.querySelector(link.getAttribute('href'));
@@ -354,15 +462,47 @@
       }
     }));
 
-    // Подтверждение заявки на демо-странице
+    // Inline-ошибки формы
     const appointmentForm = document.querySelector('#appointment-form');
     appointmentForm.addEventListener('submit', (event) => {
       event.preventDefault();
-      if (!appointmentForm.reportValidity()) return;
+      const formError = document.querySelector('#form-error');
+      const formMessage = document.querySelector('#form-message');
+      formError.textContent = '';
+      formMessage.textContent = '';
+      appointmentForm.querySelectorAll('[aria-invalid]').forEach((el) => el.removeAttribute('aria-invalid'));
+
+      if (!appointmentForm.checkValidity()) {
+        formError.textContent = 'Заполните имя и телефон — без них мы не сможем вам перезвонить.';
+        appointmentForm.querySelectorAll('input, select').forEach((el) => {
+          if (!el.checkValidity()) el.setAttribute('aria-invalid', 'true');
+        });
+        const firstInvalid = appointmentForm.querySelector('[aria-invalid="true"]');
+        if (firstInvalid) firstInvalid.focus();
+        return;
+      }
+
       const clientName = appointmentForm.elements.name.value.trim();
-      document.querySelector('#form-message').textContent = `Спасибо, ${clientName}! Мы скоро вам позвоним.`;
+      formMessage.textContent = 'Спасибо, ' + clientName + '! Мы скоро вам позвоним.';
       appointmentForm.reset();
     });
+
+    // Анимация появления при прокрутке
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const revealElements = document.querySelectorAll('.reveal, .reveal-stagger');
+    if (prefersReducedMotion.matches) {
+      revealElements.forEach((el) => el.classList.add('is-visible'));
+    } else {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      revealElements.forEach((el) => revealObserver.observe(el));
+    }
   </script>
 </body>
 </html>
