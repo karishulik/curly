@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кудри вьются — салон кудрявых волос</title>
+  <meta name="description" content="Салон для тех, кто любит свои кудри. Стрижки, уход, окрашивание и укладка по технологии curly hair.">
+  <meta property="og:title" content="Кудри вьются — салон кудрявых волос">
+  <meta property="og:description" content="Салон для тех, кто любит свои кудри. Стрижки, уход, окрашивание и укладка по технологии curly hair.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23fdf6ec'/%3E%3Cpath d='M32 10c-10 6-14 18-6 26s16 10 10 18' stroke='%23c97b63' stroke-width='6' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='42' cy='48' r='4' fill='%23c97b63'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Comfortaa:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ==============================
+       1. RESET & BASE
+       ============================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: 'Comfortaa', system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-size: clamp(1rem, 0.95rem + 0.25vw, 1.1rem);
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+      overflow-x: hidden;
+    }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; border: none; background: none; }
+    ul { list-style: none; }
+
+    /* ==============================
+       2. DESIGN TOKENS
+       ============================== */
+    :root {
+      --bg: #fdf6ec;
+      --bg-alt: #f5e6d3;
+      --accent: #c97b63;
+      --accent-dark: #a85d47;
+      --accent-soft: #e8b4a0;
+      --text: #3d2b1f;
+      --text-soft: #6b5446;
+      --white: #fffaf3;
+      --shadow: 0 4px 20px rgba(61, 43, 31, 0.08);
+      --shadow-hover: 0 8px 30px rgba(61, 43, 31, 0.14);
+      --radius: 1.25rem;
+      --radius-sm: 0.75rem;
+      --transition: 0.3s ease;
+    }
+
+    /* ==============================
+       3. LAYOUT HELPERS
+       ============================== */
+    .container {
+      width: min(92%, 1200px);
+      margin-inline: auto;
+    }
+    section { padding: clamp(3rem, 5vw, 6rem) 0; }
+    h1, h2, h3 { font-weight: 700; line-height: 1.2; color: var(--text); }
+    h2 {
+      font-size: clamp(1.8rem, 1.5rem + 1.5vw, 2.8rem);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .section-sub {
+      text-align: center;
+      color: var(--text-soft);
+      max-width: 600px;
+      margin: 0 auto 3rem;
+    }
+
+    /* ==============================
+       4. BUTTONS
+       ============================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 2rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all var(--transition);
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+      box-shadow: 0 4px 14px rgba(201, 123, 99, 0.35);
+    }
+    .btn-primary:hover, .btn-primary:focus-visible {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(201, 123, 99, 0.45);
+    }
+    .btn-outline {
+      border: 2px solid var(--accent);
+      color: var(--accent);
+    }
+    .btn-outline:hover, .btn-outline:focus-visible {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    /* ==============================
+       5. HEADER
+       ============================== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(253, 246, 236, 0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(61, 43, 31, 0.06);
+    }
+    .header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+      gap: 1.5rem;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: 'Marck Script', cursive;
+      font-size: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+      color: var(--accent);
+      font-weight: 400;
+    }
+    .logo svg { width: 2.2rem; height: 2.2rem; }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: clamp(1rem, 2vw, 2rem);
+    }
+    .nav__link {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-soft);
+      transition: color var(--transition);
+      position: relative;
+    }
+    .nav__link::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width var(--transition);
+    }
+    .nav__link:hover, .nav__link:focus-visible { color: var(--accent); }
+    .nav__link:hover::after, .nav__link:focus-visible::after { width: 100%; }
+
+    .nav__cta { display: inline-flex; }
+
+    .burger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 2.5rem;
+      height: 2.5rem;
+      padding: 0.5rem;
+      z-index: 110;
+    }
+    .burger span {
+      display: block;
+      height: 2px;
+      width: 100%;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all var(--transition);
+      transform-origin: center;
+    }
+    .burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    @media (max-width: 900px) {
+      .burger { display: flex; }
+      .nav {
+        position: fixed;
+        inset: 0 0 0 30%;
+        background: var(--bg);
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 2rem;
+        gap: 2rem;
+        transform: translateX(100%);
+        visibility: hidden;
+        transition: transform var(--transition), visibility 0s linear 0.3s;
+        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+      }
+      .nav.open {
+        transform: translateX(0);
+        visibility: visible;
+        transition: transform var(--transition), visibility 0s linear 0s;
+      }
+      .nav__link { font-size: 1.2rem; }
+    }
+
+    /* ==============================
+       6. HERO
+       ============================== */
+    .hero {
+      padding: clamp(4rem, 8vw, 8rem) 0 clamp(3rem, 6vw, 6rem);
+      display: flex;
+      align-items: center;
+    }
+    .hero__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .hero__title {
+      font-size: clamp(2.2rem, 1.8rem + 2.5vw, 4rem);
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+    .hero__title span {
+      color: var(--accent);
+      font-family: 'Marck Script', cursive;
+      font-weight: 400;
+      font-size: 1.15em;
+    }
+    .hero__text {
+      font-size: clamp(1rem, 0.95rem + 0.3vw, 1.2rem);
+      color: var(--text-soft);
+      margin-bottom: 2rem;
+      max-width: 500px;
+    }
+    .hero__actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+    .hero__visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero__blob {
+      width: min(100%, 420px);
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, var(--accent-soft), var(--bg-alt));
+      border-radius: 38% 62% 55% 45% / 45% 38% 62% 55%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: blob 12s ease-in-out infinite;
+    }
+    .hero__blob svg { width: 60%; height: 60%; }
+
+    @keyframes blob {
+      0%, 100% { border-radius: 38% 62% 55% 45% / 45% 38% 62% 55%; }
+      50% { border-radius: 55% 45% 38% 62% / 62% 55% 45% 38%; }
+    }
+
+    @media (max-width: 800px) {
+      .hero__inner { grid-template-columns: 1fr; text-align: center; }
+      .hero__text { margin-inline: auto; }
+      .hero__actions { justify-content: center; }
+      .hero__visual { order: -1; }
+      .hero__blob { width: min(80%, 320px); }
+    }
+
+    /* ==============================
+       7. SERVICES
+       ============================== */
+    .services { background: var(--bg-alt); }
+    .services__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+    .service-card {
+      background: var(--white);
+      padding: 2rem 1.5rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: all var(--transition);
+      text-align: center;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+    .service-card__icon {
+      width: 4rem;
+      height: 4rem;
+      margin: 0 auto 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg);
+      border-radius: 50%;
+      color: var(--accent);
+    }
+    .service-card__icon svg { width: 2.2rem; height: 2.2rem; }
+    .service-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.75rem;
+    }
+    .service-card p {
+      font-size: 0.95rem;
+      color: var(--text-soft);
+    }
+
+    /* ==============================
+       8. MASTERS
+       ============================== */
+    .masters__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+    .master-card {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      text-align: center;
+      transition: transform var(--transition);
+    }
+    .master-card:hover { transform: translateY(-4px); }
+    .master-card__avatar {
+      width: 7rem;
+      height: 7rem;
+      margin: 0 auto 1.25rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-soft), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    .master-card h3 { font-size: 1.25rem; margin-bottom: 0.3rem; }
+    .master-card__role {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .master-card p { font-size: 0.95rem; color: var(--text-soft); }
+
+    /* ==============================
+       9. REVIEWS
+       ============================== */
+    .reviews { background: var(--bg-alt); }
+    .reviews__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .review-card {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .review-card__stars {
+      color: #f2b33d;
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: 2px;
+    }
+    .review-card__text {
+      font-size: 0.98rem;
+      color: var(--text-soft);
+      font-style: italic;
+      margin-bottom: 1.25rem;
+      line-height: 1.7;
+    }
+    .review-card__author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .review-card__author-pic {
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .review-card__author-name { font-weight: 600; font-size: 0.95rem; }
+
+    /* ==============================
+       10. PRICES
+       ============================== */
+    .prices__wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 1.15rem 2rem;
+      border-bottom: 1px dashed rgba(61, 43, 31, 0.12);
+      gap: 1rem;
+    }
+    .price-row:last-child { border-bottom: none; }
+    .price-row:hover { background: var(--bg); }
+    .price-row__name { font-weight: 600; }
+    .price-row__desc {
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      margin-top: 0.2rem;
+    }
+    .price-row__cost {
+      font-weight: 700;
+      color: var(--accent);
+      white-space: nowrap;
+      font-size: 1.1rem;
+    }
+    @media (max-width: 500px) {
+      .price-row { padding: 1rem 1.25rem; flex-wrap: wrap; }
+    }
+
+    /* ==============================
+       11. CONTACTS
+       ============================== */
+    .contacts { background: var(--bg-alt); }
+    .contacts__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .contacts__info { display: flex; flex-direction: column; gap: 1.5rem; }
+    .contact-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .contact-item__icon {
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 50%;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+    .contact-item__icon svg { width: 1.25rem; height: 1.25rem; }
+    .contact-item h4 { font-size: 0.85rem; color: var(--text-soft); margin-bottom: 0.25rem; font-weight: 600; }
+    .contact-item p, .contact-item a { font-weight: 600; color: var(--text); }
+
+    .form {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .form__field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .form__field label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-soft);
+    }
+    .form__field input,
+    .form__field select {
+      font: inherit;
+      padding: 0.8rem 1rem;
+      border: 1.5px solid rgba(61, 43, 31, 0.15);
+      border-radius: var(--radius-sm);
+      background: var(--bg);
+      color: var(--text);
+      transition: border-color var(--transition);
+    }
+    .form__field input:focus,
+    .form__field select:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    .form__success {
+      padding: 1rem;
+      background: #e8f5e9;
+      color: #2e7d32;
+      border-radius: var(--radius-sm);
+      text-align: center;
+      font-weight: 600;
+      display: none;
+    }
+    .form__success.show { display: block; }
+
+    @media (max-width: 800px) {
+      .contacts__grid { grid-template-columns: 1fr; }
+    }
+
+    /* ==============================
+       12. FOOTER
+       ============================== */
+    .footer {
+      background: var(--text);
+      color: var(--bg);
+      padding: 2.5rem 0;
+      text-align: center;
+    }
+    .footer__inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    .footer__socials {
+      display: flex;
+      gap: 1rem;
+    }
+    .footer__socials a {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      background: rgba(253, 246, 236, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background var(--transition);
+      color: var(--bg);
+    }
+    .footer__socials a:hover,
+    .footer__socials a:focus-visible {
+      background: var(--accent);
+    }
+    .footer__socials svg { width: 1.1rem; height: 1.1rem; }
+    .footer__copy { font-size: 0.85rem; opacity: 0.8; }
+
+    /* ==============================
+       13. ACCESSIBILITY
+       ============================== */
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================== HEADER ================== -->
+  <header class="header" role="banner">
+    <div class="container header__inner">
+      <a href="#" class="logo" aria-label="Кудри вьются — на главную">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M8 20c0-6 4-10 8-10s6 4 4 8-6 4-8 0 0-8 4-8 8 4 8 8-4 10-8 10-8-4-8-8z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M20 14c2 2 4 4 4 7s-2 5-4 5-4-2-4-5 2-5 4-7z" fill="currentColor" opacity="0.3"/>
+        </svg>
+        Кудри вьются
+      </a>
+
+      <button class="burger" aria-label="Меню" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav" id="nav" aria-label="Главное меню">
+        <a href="#services" class="nav__link">Услуги</a>
+        <a href="#masters" class="nav__link">Мастера</a>
+        <a href="#reviews" class="nav__link">Отзывы</a>
+        <a href="#prices" class="nav__link">Цены</a>
+        <a href="#contacts" class="nav__link">Контакты</a>
+        <a href="#contacts" class="btn btn-primary nav__cta">Записаться</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================== HERO ================== -->
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <h1 class="hero__title">Твои <span>кудри</span><br>заслуживают любви</h1>
+          <p class="hero__text">Мы знаем, как обуздать завиток, сохранить его упругость и подарить волосам живой блеск. Никакого пушистого хаоса — только мягкие, послушные локоны.</p>
+          <div class="hero__actions">
+            <a href="#contacts" class="btn btn-primary">Записаться</a>
+            <a href="#services" class="btn btn-outline">Наши услуги</a>
+          </div>
+        </div>
+        <div class="hero__visual" aria-hidden="true">
+          <div class="hero__blob">
+            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <!-- Hair mass: big bumpy curly-cloud silhouette behind the face -->
+              <path d="
+                M100 22
+                C 84 16, 64 20, 54 32
+                C 40 28, 26 42, 26 60
+                C 16 72, 18 95, 30 105
+                C 22 118, 26 138, 42 148
+                C 40 162, 56 170, 72 165
+                C 82 172, 94 170, 100 166
+                C 106 170, 118 172, 128 165
+                C 144 170, 160 162, 158 148
+                C 174 138, 178 118, 170 105
+                C 182 95, 184 72, 174 60
+                C 174 42, 160 28, 146 32
+                C 136 20, 116 16, 100 22 Z"
+                fill="#c97b63"/>
+
+              <!-- Curl spiral texture — many small spirals over the hair mass -->
+              <!-- Top curls -->
+              <path d="M78 35 C 70 27, 87 22, 90 34 C 92 44, 76 47, 74 38" stroke="#7a4232" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <path d="M110 30 C 102 22, 118 18, 122 30 C 124 40, 108 42, 106 34" stroke="#7a4232" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <path d="M60 52 C 52 44, 68 40, 70 52 C 72 62, 56 62, 56 54" stroke="#7a4232" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <path d="M140 48 C 132 40, 148 36, 150 48 C 152 58, 136 58, 136 50" stroke="#7a4232" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <path d="M96 48 C 90 40, 104 36, 108 48 C 110 56, 96 58, 94 50" stroke="#7a4232" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+              <!-- Left side curls -->
+              <path d="M38 70 C 28 62, 44 56, 48 70 C 50 82, 34 82, 34 72" stroke="#7a4232" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <path d="M30 95 C 20 88, 36 82, 40 95 C 42 106, 26 106, 28 98" stroke="#7a4232" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <path d="M34 125 C 24 118, 40 112, 44 125 C 46 136, 30 136, 32 128" stroke="#7a4232" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <path d="M46 152 C 38 145, 52 140, 56 152 C 58 162, 44 162, 44 154" stroke="#7a4232" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <!-- Right side curls -->
+              <path d="M160 72 C 152 64, 168 60, 170 72 C 172 82, 156 84, 156 74" stroke="#7a4232" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <path d="M168 98 C 160 90, 176 86, 178 98 C 180 108, 164 108, 164 100" stroke="#7a4232" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <path d="M164 128 C 156 120, 172 116, 174 128 C 176 138, 160 138, 162 130" stroke="#7a4232" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <path d="M154 155 C 146 148, 162 144, 164 155 C 166 164, 150 164, 152 156" stroke="#7a4232" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <!-- Front curls / bangs falling on forehead -->
+              <path d="M78 68 C 70 60, 86 55, 90 68 C 92 78, 76 80, 76 70" stroke="#7a4232" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+              <path d="M120 65 C 114 56, 130 52, 132 65 C 134 76, 118 78, 118 68" stroke="#7a4232" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+
+              <!-- Neck -->
+              <path d="M92 148 C 92 158, 90 168, 88 176" stroke="#c97b63" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <path d="M108 148 C 108 158, 110 168, 112 176" stroke="#c97b63" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+              <!-- Shoulders / collar line -->
+              <path d="M55 192 C 68 180, 80 174, 88 176" stroke="#c97b63" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+              <path d="M145 192 C 132 180, 120 174, 112 176" stroke="#c97b63" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+
+              <!-- Face (oval with warm skin tone, on top of hair base) -->
+              <ellipse cx="100" cy="108" rx="28" ry="36" fill="#f5d9c8" stroke="#c97b63" stroke-width="2"/>
+
+              <!-- Eyebrows -->
+              <path d="M84 97 Q 90 93, 96 96" stroke="#5b3a2e" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+              <path d="M104 96 Q 110 93, 116 97" stroke="#5b3a2e" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+
+              <!-- Closed smiling eyes (curved lashes) -->
+              <path d="M83 105 Q 90 110, 97 105" stroke="#5b3a2e" stroke-width="1.9" fill="none" stroke-linecap="round"/>
+              <path d="M103 105 Q 110 110, 117 105" stroke="#5b3a2e" stroke-width="1.9" fill="none" stroke-linecap="round"/>
+              <!-- Small lashes -->
+              <path d="M85 107 L 84 110" stroke="#5b3a2e" stroke-width="1" fill="none" stroke-linecap="round"/>
+              <path d="M90 108 L 90 111" stroke="#5b3a2e" stroke-width="1" fill="none" stroke-linecap="round"/>
+              <path d="M95 107 L 96 110" stroke="#5b3a2e" stroke-width="1" fill="none" stroke-linecap="round"/>
+              <path d="M105 107 L 104 110" stroke="#5b3a2e" stroke-width="1" fill="none" stroke-linecap="round"/>
+              <path d="M110 108 L 110 111" stroke="#5b3a2e" stroke-width="1" fill="none" stroke-linecap="round"/>
+              <path d="M115 107 L 116 110" stroke="#5b3a2e" stroke-width="1" fill="none" stroke-linecap="round"/>
+
+              <!-- Nose hint -->
+              <path d="M100 112 Q 98 120, 102 122" stroke="#5b3a2e" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+
+              <!-- Smile -->
+              <path d="M92 130 Q 100 137, 108 130" stroke="#5b3a2e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+
+              <!-- Rosy cheeks -->
+              <circle cx="80" cy="122" r="4" fill="#e8a490" opacity="0.55"/>
+              <circle cx="120" cy="122" r="4" fill="#e8a490" opacity="0.55"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================== SERVICES ================== -->
+    <section class="services" id="services">
+      <div class="container">
+        <h2>Наши услуги</h2>
+        <p class="section-sub">Всё, что нужно твоим кудрям — от стрижки по специальной технологии до глубокого увлажнения</p>
+        <div class="services__grid">
+
+          <article class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/>
+              </svg>
+            </div>
+            <h3>Кудрявая стрижка</h3>
+            <p>Стрижём каждый завиток отдельно, учитывая его естественную форму и длину в сухом виде.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v6M12 18v4M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M2 12h6M18 12h4M4.93 19.07l4.24-4.24M14.83 9.17l4.24-4.24"/>
+              </svg>
+            </div>
+            <h3>Уход и увлажнение</h3>
+            <p>Глубокое питание, кератиновые маски и SPA-программы для сухих и пористых кудрей.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/>
+              </svg>
+            </div>
+            <h3>Окрашивание</h3>
+            <p>Балаяж, шатуш и мягкое тонирование — подчёркиваем глубину и рельеф завитков.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 12c0-5 4-9 9-9s9 4 9 9-4 9-9 9-9-4-9-9z"/><path d="M8 12c0-2 1.5-4 4-4s4 2 4 4-1.5 4-4 4-4-2-4-4z"/>
+              </svg>
+            </div>
+            <h3>Укладка диффузором</h3>
+            <p>Формируем идеальные локоны с объёмом у корней и естественным движением по длине.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+              </svg>
+            </div>
+            <h3>Консультация</h3>
+            <p>Разбираем твой уход, подбираем средства и рутины под твой тип кудрей.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+              </svg>
+            </div>
+            <h3>Детская стрижка</h3>
+            <p>Для маленьких кудряшек — бережно, с игрой и без слёз. Первый опыт в салоне.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================== MASTERS ================== -->
+    <section class="masters" id="masters">
+      <div class="container">
+        <h2>Наши мастера</h2>
+        <p class="section-sub">Профессионалы, которые сами живут с кудрями и понимают их изнутри</p>
+        <div class="masters__grid">
+
+          <article class="master-card">
+            <div class="master-card__avatar" aria-hidden="true">АК</div>
+            <h3>Алина Кудрявцева</h3>
+            <p class="master-card__role">Топ-стилист, curly method</p>
+            <p>10 лет работы с кудрявыми волосами. Сертифицирована по методу Lorraine Massey. Обожает превращать «пушистый одуван» в структурированные локоны.</p>
+          </article>
+
+          <article class="master-card">
+            <div class="master-card__avatar" aria-hidden="true">МВ</div>
+            <h3>Марина Волнистая</h3>
+            <p class="master-card__role">Колорист</p>
+            <p>Создаёт мягкие переходы цвета, подчёркивающие рельеф завитка. Работает только с щадящими составами без аммиака.</p>
+          </article>
+
+          <article class="master-card">
+            <div class="master-card__avatar" aria-hidden="true">ДС</div>
+            <h3>Дарья Спиральная</h3>
+            <p class="master-card__role">Барбер-кудролог</p>
+            <p>Специалист по коротким кудрям и мужским стрижкам. Находит форму, которая работает сама по себе утром без укладки.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================== REVIEWS ================== -->
+    <section class="reviews" id="reviews">
+      <div class="container">
+        <h2>Отзывы</h2>
+        <p class="section-sub">Что говорят наши кудрявые клиенты</p>
+        <div class="reviews__grid">
+
+          <article class="review-card">
+            <div class="review-card__stars" aria-label="Оценка 5 из 5">★★★★★</div>
+            <p class="review-card__text">«Впервые в жизни вышла из салона и не расплакалась, увидев себя в зеркале. Алина сделала мне стрижку, и мои кудри наконец-то лежат как надо. Магия!»</p>
+            <div class="review-card__author">
+              <div class="review-card__author-pic" aria-hidden="true">ЕС</div>
+              <div class="review-card__author-name">Екатерина С.</div>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div class="review-card__stars" aria-label="Оценка 5 из 5">★★★★★</div>
+            <p class="review-card__text">«Ходила к Марине на балаяж — цвет получился объёмным, как будто каждый локон играет. Плюс подробная консультация по уходу. Спасибо!»</p>
+            <div class="review-card__author">
+              <div class="review-card__author-pic" aria-hidden="true">ОП</div>
+              <div class="review-card__author-name">Ольга П.</div>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div class="review-card__stars" aria-label="Оценка 5 из 5">★★★★★</div>
+            <p class="review-card__text">«Привёл сына — он боится парикмахерских. Дарья нашла подход: играли, смеялись, а в итоге — стильная кудрявая стрижка. Теперь ходим регулярно.»</p>
+            <div class="review-card__author">
+              <div class="review-card__author-pic" aria-hidden="true">АМ</div>
+              <div class="review-card__author-name">Артём М.</div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================== PRICES ================== -->
+    <section class="prices" id="prices">
+      <div class="container">
+        <h2>Цены</h2>
+        <p class="section-sub">Прозрачные цены без скрытых доплат. Финальная стоимость зависит от длины и густоты.</p>
+        <div class="prices__wrap">
+          <div class="price-row">
+            <div>
+              <div class="price-row__name">Кудрявая стрижка</div>
+              <div class="price-row__desc">Сухая + мытьё, укладка диффузором</div>
+            </div>
+            <div class="price-row__cost">от 2 500 ₽</div>
+          </div>
+          <div class="price-row">
+            <div>
+              <div class="price-row__name">Стрижка + уход</div>
+              <div class="price-row__desc">Стрижка + питательная маска</div>
+            </div>
+            <div class="price-row__cost">от 3 200 ₽</div>
+          </div>
+          <div class="price-row">
+            <div>
+              <div class="price-row__name">Окрашивание</div>
+              <div class="price-row__desc">Балаяж, шатуш, тонирование</div>
+            </div>
+            <div class="price-row__cost">от 4 500 ₽</div>
+          </div>
+          <div class="price-row">
+            <div>
+              <div class="price-row__name">Укладка диффузором</div>
+              <div class="price-row__desc">Мытьё, стайлинг, сушка</div>
+            </div>
+            <div class="price-row__cost">от 1 500 ₽</div>
+          </div>
+          <div class="price-row">
+            <div>
+              <div class="price-row__name">SPA-уход</div>
+              <div class="price-row__desc">Глубокое увлажнение, кератин</div>
+            </div>
+            <div class="price-row__cost">от 2 000 ₽</div>
+          </div>
+          <div class="price-row">
+            <div>
+              <div class="price-row__name">Консультация</div>
+              <div class="price-row__desc">Разбор ухода, подбор средств</div>
+            </div>
+            <div class="price-row__cost">1 000 ₽</div>
+          </div>
+          <div class="price-row">
+            <div>
+              <div class="price-row__name">Детская стрижка</div>
+              <div class="price-row__desc">До 10 лет</div>
+            </div>
+            <div class="price-row__cost">от 1 800 ₽</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================== CONTACTS ================== -->
+    <section class="contacts" id="contacts">
+      <div class="container">
+        <h2>Контакты</h2>
+        <p class="section-sub">Записывайся онлайн или приходи к нам в салон — мы всегда рады новым кудряшкам</p>
+        <div class="contacts__grid">
+
+          <div class="contacts__info">
+            <div class="contact-item">
+              <div class="contact-item__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Адрес</h4>
+                <p>Санкт-Петербург, ул. Кудрявая, 12</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-item__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Телефон</h4>
+                <a href="tel:+78121234567">+7 (812) 123-45-67</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-item__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Время работы</h4>
+                <p>Пн–Сб: 10:00 – 21:00<br>Вс: 11:00 – 19:00</p>
+              </div>
+            </div>
+          </div>
+
+          <form class="form" id="booking-form" novalidate>
+            <div class="form__field">
+              <label for="name">Имя</label>
+              <input type="text" id="name" name="name" placeholder="Как тебя зовут?" required>
+            </div>
+            <div class="form__field">
+              <label for="phone">Телефон</label>
+              <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+            </div>
+            <div class="form__field">
+              <label for="service">Услуга</label>
+              <select id="service" name="service" required>
+                <option value="">Выбери услугу</option>
+                <option value="cut">Кудрявая стрижка</option>
+                <option value="cut-care">Стрижка + уход</option>
+                <option value="color">Окрашивание</option>
+                <option value="style">Укладка диффузором</option>
+                <option value="spa">SPA-уход</option>
+                <option value="consult">Консультация</option>
+                <option value="kids">Детская стрижка</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Записаться</button>
+            <div class="form__success" id="form-success" role="status" aria-live="polite">
+              ✨ Спасибо! Мы свяжемся с тобой в ближайшее время.
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================== FOOTER ================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <div class="footer__socials">
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+        </a>
+        <a href="#" aria-label="Telegram">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </a>
+        <a href="#" aria-label="VK">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14c5.6 0 6.93-1.33 6.93-6.93V8.93C22 3.33 20.67 2 15.07 2zm3.08 14.27h-1.45c-.55 0-.72-.44-1.71-1.43-.86-.83-1.23-.94-1.44-.94-.3 0-.38.08-.38.5v1.3c0 .35-.11.56-1.03.56-1.52 0-3.2-.92-4.39-2.63C6.24 11.4 5.7 9.37 5.7 8.93c0-.21.08-.38.5-.38h1.45c.37 0 .5.16.65.55.72 1.83 1.92 3.43 2.41 3.43.18 0 .27-.08.27-.54V9.82c-.06-.96-.56-1.04-.56-1.38 0-.16.14-.32.35-.32h2.28c.31 0 .42.16.42.51v3.09c0 .31.14.42.22.42.18 0 .33-.11.65-.43 1.01-1.13 1.73-2.88 1.73-2.88.1-.21.27-.4.64-.4h1.45c.44 0 .53.22.44.51-.18.83-1.92 3.28-1.92 3.28-.15.25-.21.37 0 .65.15.21.65.65.98 1.04.61.7 1.07 1.28 1.2 1.68.13.4-.08.61-.49.61z"/>
+          </svg>
+        </a>
+      </div>
+      <p class="footer__copy">© 2026 Кудри вьются. Все локоны защищены.</p>
+    </div>
+  </footer>
+
+  <script>
+    /* ===== BURGER MENU ===== */
+    (function () {
+      const burger = document.querySelector('.burger');
+      const nav = document.querySelector('.nav');
+
+      burger.addEventListener('click', function () {
+        const expanded = burger.getAttribute('aria-expanded') === 'true';
+        burger.setAttribute('aria-expanded', !expanded);
+        nav.classList.toggle('open');
+      });
+
+      /* Закрытие меню при клике на ссылку */
+      nav.querySelectorAll('.nav__link, .nav__cta').forEach(function (link) {
+        link.addEventListener('click', function () {
+          nav.classList.remove('open');
+          burger.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      /* Закрытие меню по Escape с возвратом фокуса на бургер */
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && nav.classList.contains('open')) {
+          nav.classList.remove('open');
+          burger.setAttribute('aria-expanded', 'false');
+          burger.focus();
+        }
+      });
+
+      /* Закрытие меню при клике вне области header/nav */
+      document.addEventListener('click', function (e) {
+        if (nav.classList.contains('open') && !nav.contains(e.target) && !burger.contains(e.target)) {
+          nav.classList.remove('open');
+          burger.setAttribute('aria-expanded', 'false');
+        }
+      });
+    })();
+
+    /* ===== FORM SUBMIT ===== */
+    (function () {
+      const form = document.getElementById('booking-form');
+      const success = document.getElementById('form-success');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const name = form.name.value.trim();
+        const phone = form.phone.value.trim();
+        const service = form.service.value;
+
+        if (!name || !phone || !service) {
+          alert('Пожалуйста, заполни все поля');
+          return;
+        }
+
+        form.reset();
+        success.classList.add('show');
+        setTimeout(function () {
+          success.classList.remove('show');
+        }, 5000);
+      });
+    })();
+  </script>
+</body>
+</html>
