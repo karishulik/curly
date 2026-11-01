@@ -9,6 +9,7 @@
   <meta property="og:description" content="Салон бережного ухода и стрижки для кудрявых волос в Санкт-Петербурге.">
   <meta property="og:type" content="website">
   <title>Кудри вьются — салон для ваших локонов</title>
+  <link rel="icon" type="image/png" href="img/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -45,7 +46,7 @@
       scroll-padding-top: 6rem;
     }
     * { box-sizing: border-box; }
-    body { margin: 0; min-width: 320px; background: var(--cream); line-height: 1.6; font-family: "Onest", "Segoe UI", system-ui, sans-serif; }
+    body { margin: 0; background: var(--cream); line-height: 1.6; font-family: "Onest", "Segoe UI", system-ui, sans-serif; }
     button, input, select { font: inherit; }
     a { color: inherit; text-decoration: none; }
     button, a, input, select { -webkit-tap-highlight-color: transparent; }
@@ -63,6 +64,7 @@
     .button-outline:hover { background: var(--rose); color: #FFFFF2; }
     .button-outline:active { background: var(--rose-dark); color: #FFFFF2; }
     .icon { width: 1.5rem; height: 1.5rem; flex: none; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+    .icon-filled { fill: currentColor; stroke: none; }
 
     /* Blob-карточки — облачная форма бренда */
     .blob {
@@ -93,6 +95,8 @@
     .brand:active { opacity: .65; }
     .brand-mark { display: grid; width: 2.4rem; height: 2.4rem; place-items: center; border-radius: 50%; background: transparent; color: white; }
     .brand-mark img { width: 2.1rem; height: 2.1rem; object-fit: contain; }
+    .brand-wordmark { display: inline-flex; align-items: center; }
+    .brand-wordmark img { height: 1.15rem; width: auto; display: block; }
     .nav { display: flex; align-items: center; gap: clamp(.8rem, 2vw, 1.7rem); }
     .nav a { color: #55443c; font-size: .9rem; font-weight: 650; transition: color var(--ease-base) .3s; }
     .nav a:hover { color: var(--rose-dark); }
@@ -163,12 +167,12 @@
     .price-intro h2 { margin: 0; font-family: "NauryzRedKeds", Georgia, serif; font-weight: 700; font-size: clamp(2rem, 4.5vw, 3.2rem); line-height: 1.15; letter-spacing: -.01em; text-wrap: balance; }
     .price-intro > p:not(.eyebrow) { color: var(--muted); }
     .price-groups { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
-    .price-group { background: #C7D8E2; padding: 1.75rem; }
+    .price-group { background: #C7D8E2; padding: 1.75rem; min-width: 0; }
     .price-group h3 { margin: 0 0 1rem; font-family: "NauryzRedKeds", Georgia, serif; font-weight: 700; font-size: 1.2rem; font-style: italic; letter-spacing: -.01em; }
     .price-list { margin: 0; padding: 0; list-style: none; }
     .price-list li { display: flex; align-items: baseline; gap: .5rem; padding: .55rem 0; }
     .price-list li + li { border-top: 0; }
-    .price-label { font-weight: 600; flex: 0 1 auto; white-space: nowrap; }
+    .price-label { font-weight: 600; flex: 0 1 auto; }
     .price-leader { flex: 1; border-bottom: 2px dotted rgba(75, 45, 37, .35); margin-bottom: .25em; min-width: 1rem; }
     .price-value { color: var(--rose); font-weight: 800; white-space: nowrap; font-variant-numeric: tabular-nums; }
     .price-footnote { margin-top: 1.5rem; color: var(--muted); font-size: .84rem; text-align: center; }
@@ -383,8 +387,8 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#top" aria-label="Кудри вьются — на главную">
-        <span class="brand-mark" aria-hidden="true"><img src="img/brand-mark-small.png" alt="" aria-hidden="true" width="256" height="255"></span>
-        <span>Кудри вьются</span>
+        <span class="brand-mark" aria-hidden="true"><img src="img/logo.png" alt="" aria-hidden="true" width="256" height="255" onerror="this.onerror=null;this.src='img/brand-mark-small.png'"></span>
+        <span class="brand-wordmark"><img src="img/logo_letters.png" alt="" aria-hidden="true" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display=''"><span style="display:none">Кудри вьются</span></span>
       </a>
       <nav class="nav" id="site-nav" aria-label="Основная навигация">
         <a href="#services">Услуги</a><a href="#team">Мастера</a><a href="#reviews">Отзывы</a><a href="#prices">Цены</a><a href="#faq">Вопросы</a><a href="#contacts">Контакты</a>
@@ -408,7 +412,7 @@
         </div>
         <div>
           <div class="hero-art">
-            <img src="img/brand-hero.png" alt="Иллюстрация бренда — девочка с объёмными кудрями на розовом облаке" width="1319" height="1317" style="width:100%;height:auto">
+            <img src="img/logo.png" alt="Иллюстрация бренда — девочка с объёмными кудрями на розовом облаке" onerror="this.onerror=null;this.src='img/brand-hero.png'" style="width:100%;height:auto">
           </div>
           <p class="hero-caption">Свои кудри — своя история. Давайте подчеркнём её.</p>
         </div>
@@ -451,9 +455,9 @@
       <div class="container">
         <div class="section-heading"><p class="eyebrow">Нам доверяют свои локоны</p><h2 id="reviews-title">Слова, от которых теплеет</h2></div>
         <div class="review-grid reveal-stagger">
-          <article class="review-card"><div class="stars" aria-label="5 из 5 звёзд">★★★★★</div><blockquote>«Впервые вышла из салона с ощущением, что мои волосы — это достоинство, а не задача. Кудри лежат прекрасно!»</blockquote><div class="review-author"><span class="review-avatar" aria-hidden="true">ЕС</span><span><strong>Екатерина</strong><br>стрижка и укладка</span></div></article>
-          <article class="review-card"><div class="stars" aria-label="5 из 5 звёзд">★★★★★</div><blockquote>«Анна объяснила каждый шаг, подсказала уход. Теперь укладываюсь за 15 минут и обожаю отражение.»</blockquote><div class="review-author"><span class="review-avatar" aria-hidden="true">ОЛ</span><span><strong>Ольга</strong><br>консультация и уход</span></div></article>
-          <article class="review-card"><div class="stars" aria-label="5 из 5 звёзд">★★★★★</div><blockquote>«Наконец-то барбер, который не пытается выпрямить мои кудри. Форма — огонь, утром просто освежаю водой.»</blockquote><div class="review-author"><span class="review-avatar" aria-hidden="true">ДК</span><span><strong>Дмитрий</strong><br>стрижка у барбера</span></div></article>
+          <article class="review-card"><div class="stars" aria-label="5 из 5 звёзд">★★★★★</div><blockquote>«Впервые вышла из салона с ощущением, что мои волосы — это достоинство, а не задача. Кудри лежат прекрасно!»</blockquote><div class="review-author"><span class="review-avatar" aria-hidden="true">ЕС</span><span><strong>Екатерина</strong><br>биозавивка, средние до плеч</span></div></article>
+          <article class="review-card"><div class="stars" aria-label="5 из 5 звёзд">★★★★★</div><blockquote>«Анна объяснила каждый шаг, подсказала уход. Теперь укладываюсь за 15 минут и обожаю отражение.»</blockquote><div class="review-author"><span class="review-avatar" aria-hidden="true">ОЛ</span><span><strong>Ольга</strong><br>онлайн-консультация</span></div></article>
+          <article class="review-card"><div class="stars" aria-label="5 из 5 звёзд">★★★★★</div><blockquote>«Наконец-то мужская завивка, которая не пытается выпрямить мои кудри. Форма — огонь, утром просто освежаю водой.»</blockquote><div class="review-author"><span class="review-avatar" aria-hidden="true">ДК</span><span><strong>Дмитрий</strong><br>мужская завивка</span></div></article>
         </div>
       </div>
     </section>
@@ -493,7 +497,7 @@
           <div class="blob price-group">
             <h3>Онлайн-консультация</h3>
             <ul class="price-list">
-              <li><span class="price-label">Стоимость</span><span class="price-leader"></span><span class="price-value">уточняется при записи</span></li>
+              <li><span class="price-label">Стоимость</span><span class="price-leader"></span><span class="price-value">бесплатно</span></li>
             </ul>
           </div>
         </div>
@@ -540,7 +544,7 @@
 
   <div class="locks-strip" aria-hidden="true"></div>
 
-  <footer class="site-footer"><div class="container footer-inner"><a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"><img src="img/brand-mark-small.png" alt="" aria-hidden="true" width="256" height="255"></span><span>Кудри вьются</span></a><span class="footer-copy">© <span id="year">2026</span> · С любовью к вашим завиткам</span><div class="socials" aria-label="Мы в социальных сетях"><a href="https://t.me/kycheryanika" target="_blank" rel="noopener" aria-label="Telegram"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m22 3-7 18-4-8-8-4zM22 3 11 13"/></svg></a><a href="https://www.instagram.com/nikacurlywave?igsh=a3hlYjdvanN4dW1s&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a><a href="https://vk.ru/nikacurlywavebio" target="_blank" rel="noopener" aria-label="ВКонтакте"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h4c1.3 5 3 7 4 7s1-1 1-3V7h4v5c0 1 .4 2 1 2s2-2 4-7h-4M4 17h5l2-3 3 3h6"/></svg></a></div><div class="footer-legal"><button type="button" data-dialog="#privacy-dialog">Политика конфиденциальности</button><button type="button" data-dialog="#terms-dialog">Условия</button></div></div></footer>
+  <footer class="site-footer"><div class="container footer-inner"><a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"><img src="img/logo.png" alt="" aria-hidden="true" width="256" height="255" onerror="this.onerror=null;this.src='img/brand-mark-small.png'"></span><span class="brand-wordmark"><img src="img/logo_letters.png" alt="" aria-hidden="true" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display=''"><span style="display:none">Кудри вьются</span></span></a><span class="footer-copy">© <span id="year">2026</span> · С любовью к вашим завиткам</span><div class="socials" aria-label="Мы в социальных сетях"><a href="https://t.me/kycheryanika" target="_blank" rel="noopener" aria-label="Telegram"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m22 3-7 18-4-8-8-4zM22 3 11 13"/></svg></a><a href="https://www.instagram.com/nikacurlywave?igsh=a3hlYjdvanN4dW1s&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a><a href="https://vk.ru/nikacurlywavebio" target="_blank" rel="noopener" aria-label="ВКонтакте"><svg class="icon icon-filled" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v7.14C2 21.67 3.33 23 8.93 23h7.14C21.67 23 23 21.67 23 16.07V8.93C23 3.33 21.67 2 15.07 2zm3.15 14.94h-1.6c-.61 0-.79-.49-1.87-1.58-.94-.9-1.35-1.02-1.58-1.02-.33 0-.42.09-.42.54v1.44c0 .38-.12.62-1.14.62-1.69-.02-3.5-1.03-4.79-2.98C4.9 12.3 4.19 9.77 4.13 9.56c-.06-.21.05-.35.25-.35h1.6c.24 0 .34.12.42.38.75 2.13 2.07 3.99 2.6 3.99.2 0 .29-.09.29-.59v-3.1c-.06-1.06-.65-1.14-.65-1.52 0-.17.14-.35.38-.35h2.5c.32 0 .44.17.44.55v4.19c0 .46.21.62.38.62.2 0 .36-.16.71-.51 1.14-1.28 1.95-3.25 1.95-3.25.1-.21.29-.38.53-.38h1.6c.49 0 .59.25.49.59-.2.95-2.13 3.68-2.13 3.68-.12.24-.22.35 0 .63.16.22.71.63 1.05.94.65.6 1.13 1.06 1.26 1.35.13.29 0 .49-.31.49z"/></svg></a></div><div class="footer-legal"><button type="button" data-dialog="#privacy-dialog">Политика конфиденциальности</button><button type="button" data-dialog="#terms-dialog">Условия</button></div></div></footer>
 
   <dialog class="legal-dialog" id="privacy-dialog">
     <h3>Политика конфиденциальности</h3>
